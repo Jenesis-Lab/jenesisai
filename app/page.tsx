@@ -7,7 +7,7 @@ import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       {/* Hero Section */}
@@ -19,13 +19,13 @@ export default function Home() {
         <div className="flex justify-center mb-12">
           <Link
             href="#"
-            className="group inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-4 py-2 text-sm transition-colors"
+            className="group inline-flex items-center gap-2 bg-muted hover:bg-accent border border-border rounded-full px-4 py-2 text-sm transition-colors"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-white/70">New Release</span>
-            <span className="text-white/40">|</span>
-            <span className="text-white/90">Agentic AI, Board and Orchestration v1.0</span>
-            <ChevronRight className="h-4 w-4 text-white/50 group-hover:translate-x-0.5 transition-transform" />
+            <span className="text-muted-foreground">New Release</span>
+            <span className="text-muted-foreground/40">|</span>
+            <span className="text-foreground/90">Agentic AI, Board and Orchestration v1.0</span>
+            <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
 
@@ -36,16 +36,16 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.1] mb-8">
                 Enterprise AI
                 <br />
-                <span className="text-white/50">Orchestration Platform</span>
+                <span className="text-muted-foreground">Orchestration Platform</span>
               </h1>
 
-              <p className="text-lg text-white/60 leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0">
                 Deploy AI at enterprise scale with security-first architecture. Complete data sovereignty, seamless
                 integration, and compliance built in.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10">
-                <Button className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-sm font-medium" asChild>
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 text-sm font-medium" asChild>
                   <Link href={FRONTEND_PLATFORM_URL}>
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -53,41 +53,26 @@ export default function Home() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white/20 text-white hover:bg-white/5 rounded-full px-8 h-12 text-sm font-medium bg-transparent"
+                  className="border-border text-foreground hover:bg-accent rounded-full px-8 h-12 text-sm font-medium bg-transparent"
                 >
                   Watch Demo
                 </Button>
               </div>
 
-              {/* Trust Badges */}
-              <div className="flex flex-wrap items-center gap-6 justify-center lg:justify-start text-xs text-white/40">
-                <div className="flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5 text-emerald-400" />
-                  <span>SOC 2 Type II</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5 text-emerald-400" />
-                  <span>GDPR Compliant</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="h-3.5 w-3.5 text-emerald-400" />
-                  <span>HIPAA Ready</span>
-                </div>
-              </div>
             </div>
 
             {/* Right - Dashboard Preview Placeholder */}
             <div className="relative">
-              <div className="relative bg-gradient-to-b from-white/[0.08] to-white/[0.02] rounded-2xl border border-white/10 overflow-hidden">
+              <div className="relative bg-gradient-to-b from-muted/50 to-muted/10 rounded-2xl border border-border overflow-hidden">
                 {/* Browser Chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
+                <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border">
                   <div className="flex gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-white/20" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
                   </div>
                   <div className="flex-1 mx-8">
-                    <div className="bg-white/5 rounded px-3 py-1 text-[10px] text-white/40 text-center max-w-[200px] mx-auto">
+                    <div className="bg-muted rounded px-3 py-1 text-[10px] text-muted-foreground text-center max-w-[200px] mx-auto">
                       app.jenesisai.com
                     </div>
                   </div>
@@ -98,14 +83,14 @@ export default function Home() {
                   {/* Header */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="h-8 w-8 rounded-lg bg-white flex items-center justify-center text-black text-xs font-bold">
+                      <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">
                         J
                       </div>
-                      <div className="h-2 w-20 bg-white/10 rounded" />
+                      <div className="h-2 w-20 bg-muted rounded" />
                     </div>
                     <div className="flex gap-2">
-                      <div className="h-8 w-8 rounded-lg bg-white/5" />
-                      <div className="h-8 w-8 rounded-lg bg-white/5" />
+                      <div className="h-8 w-8 rounded-lg bg-muted" />
+                      <div className="h-8 w-8 rounded-lg bg-muted" />
                     </div>
                   </div>
 
@@ -117,7 +102,7 @@ export default function Home() {
                       { label: "Accuracy", value: "99.4%", color: "purple" },
                       { label: "Latency", value: "12ms", color: "amber" },
                     ].map((stat, i) => (
-                      <div key={i} className="bg-white/5 rounded-xl p-3">
+                      <div key={i} className="bg-muted/50 rounded-xl p-3">
                         <div
                           className={`h-1 w-6 rounded-full mb-2 ${stat.color === "emerald"
                             ? "bg-emerald-400/60"
@@ -128,19 +113,19 @@ export default function Home() {
                                 : "bg-amber-400/60"
                             }`}
                         />
-                        <div className="text-white/90 text-sm font-medium">{stat.value}</div>
-                        <div className="text-white/30 text-[10px]">{stat.label}</div>
+                        <div className="text-foreground/90 text-sm font-medium">{stat.value}</div>
+                        <div className="text-muted-foreground text-[10px]">{stat.label}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* Chart Area */}
-                  <div className="bg-white/5 rounded-xl p-4 h-36">
+                  <div className="bg-muted/50 rounded-xl p-4 h-36">
                     <div className="flex items-end justify-between h-full gap-1 px-2">
                       {[35, 55, 40, 70, 50, 85, 60, 75, 45, 90, 55, 80].map((h, i) => (
                         <div
                           key={i}
-                          className="flex-1 bg-gradient-to-t from-white/30 to-white/10 rounded-t"
+                          className="flex-1 bg-gradient-to-t from-muted-foreground/30 to-muted-foreground/10 rounded-t"
                           style={{ height: `${h}%` }}
                         />
                       ))}
@@ -150,9 +135,9 @@ export default function Home() {
                   {/* Table Rows */}
                   <div className="space-y-2">
                     {[1, 2, 3].map((i) => (
-                      <div key={i} className="flex items-center gap-3 bg-white/5 rounded-lg p-3">
-                        <div className="h-6 w-6 rounded bg-white/10" />
-                        <div className="flex-1 h-1.5 bg-white/10 rounded" />
+                      <div key={i} className="flex items-center gap-3 bg-muted/50 rounded-lg p-3">
+                        <div className="h-6 w-6 rounded bg-muted" />
+                        <div className="flex-1 h-1.5 bg-muted rounded" />
                         <div className="h-5 w-14 bg-emerald-500/20 rounded-full" />
                       </div>
                     ))}
@@ -161,7 +146,7 @@ export default function Home() {
               </div>
 
               {/* Glow Effects */}
-              <div className="absolute -top-8 -right-8 h-32 w-32 bg-white/5 rounded-full blur-3xl" />
+              <div className="absolute -top-8 -right-8 h-32 w-32 bg-muted/20 rounded-full blur-3xl" />
               <div className="absolute -bottom-8 -left-8 h-40 w-40 bg-indigo-500/10 rounded-full blur-3xl" />
             </div>
           </div>
@@ -177,7 +162,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">
               Core Platform Capabilities
             </h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Our comprehensive suite of features empowers your team to build, deploy, and scale AI solutions with
               confidence.
             </p>
@@ -185,8 +170,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Enterprise Intelligence */}
-            <div className="group bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-white/10 rounded-2xl p-8 transition-all duration-300">
-              <div className="mb-6 h-48 bg-gradient-to-br from-white/[0.02] to-white/[0.05] rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="group bg-card hover:bg-accent border border-border hover:border-border/80 rounded-2xl p-8 transition-all duration-300">
+              <div className="mb-6 h-48 bg-gradient-to-br from-muted/50 to-muted rounded-xl flex items-center justify-center overflow-hidden">
                 <svg
                   width="180"
                   height="140"
@@ -211,8 +196,8 @@ export default function Home() {
                   <line x1="100" y1="75" x2="135" y2="100" stroke="rgba(129, 140, 248, 0.6)" strokeWidth="1.5" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-3 text-white">Enterprise Intelligence</h3>
-              <p className="text-white/50 mb-5 leading-relaxed text-sm">
+              <h3 className="text-xl font-medium mb-3 text-foreground">Enterprise Intelligence</h3>
+              <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
                 Our AI-driven intelligence platform analyzes enterprise data across silos, providing contextual
                 capabilities tailored to each individual's role and permissions.
               </p>
@@ -226,8 +211,8 @@ export default function Home() {
             </div>
 
             {/* Seamless Integration */}
-            <div className="group bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-white/10 rounded-2xl p-8 transition-all duration-300">
-              <div className="mb-6 h-48 bg-gradient-to-br from-white/[0.02] to-white/[0.05] rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="group bg-card hover:bg-accent border border-border hover:border-border/80 rounded-2xl p-8 transition-all duration-300">
+              <div className="mb-6 h-48 bg-gradient-to-br from-muted/50 to-muted rounded-xl flex items-center justify-center overflow-hidden">
                 <svg
                   width="180"
                   height="140"
@@ -243,7 +228,7 @@ export default function Home() {
                   <circle cx="175" cy="35" r="8" fill="rgba(16, 185, 129, 0.8)" />
                   <path
                     d="M171 35 L174 38 L179 32"
-                    stroke="white"
+                    className="stroke-background"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -251,15 +236,15 @@ export default function Home() {
                   <circle cx="25" cy="125" r="8" fill="rgba(16, 185, 129, 0.8)" />
                   <path
                     d="M21 125 L24 128 L29 122"
-                    stroke="white"
+                    className="stroke-background"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-3 text-white">Seamless Integration</h3>
-              <p className="text-white/50 mb-5 leading-relaxed text-sm">
+              <h3 className="text-xl font-medium mb-3 text-foreground">Seamless Integration</h3>
+              <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
                 Configurable, API-first connectors and single-sign-on support mean you bolt JenesisAI into your existing
                 systems in days, not months.
               </p>
@@ -273,8 +258,8 @@ export default function Home() {
             </div>
 
             {/* Data-driven Insights */}
-            <div className="group bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-white/10 rounded-2xl p-8 transition-all duration-300">
-              <div className="mb-6 h-48 bg-gradient-to-br from-white/[0.02] to-white/[0.05] rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="group bg-card hover:bg-accent border border-border hover:border-border/80 rounded-2xl p-8 transition-all duration-300">
+              <div className="mb-6 h-48 bg-gradient-to-br from-muted/50 to-muted rounded-xl flex items-center justify-center overflow-hidden">
                 <svg
                   width="180"
                   height="140"
@@ -329,8 +314,8 @@ export default function Home() {
                   <path d="M90 100 L110 100" stroke="rgba(129, 140, 248, 0.6)" strokeWidth="2" strokeDasharray="4 2" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium mb-3 text-white">Data-driven Insights</h3>
-              <p className="text-white/50 mb-5 leading-relaxed text-sm">
+              <h3 className="text-xl font-medium mb-3 text-foreground">Data-driven Insights</h3>
+              <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
                 Gain insights into real-time model metrics and user behavior through AI analytics with built-in
                 automated alerts and on-demand reports.
               </p>
@@ -347,27 +332,27 @@ export default function Home() {
       </section>
 
       {/* Enterprise Features - Bento Grid */}
-      <section className="py-32 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+      <section className="py-32 bg-gradient-to-b from-transparent via-muted/20 to-transparent">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">
               Enterprise-Grade Features
             </h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Security, scalability, and seamless integration for enterprise AI deployment
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* Privacy Architecture */}
-            <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-colors">
+            <div className="bg-card border border-border rounded-2xl p-8 hover:border-border/80 transition-colors">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
                   <Shield className="h-5 w-5 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-medium">Privacy Architecture</h3>
               </div>
-              <p className="text-white/50 mb-6 text-sm leading-relaxed">
+              <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                 Privacy-centric architecture with on-prem LLMs and LoRA adapters ensures complete data control. Your
                 sensitive enterprise data never leaves your secure environment.
               </p>
@@ -377,7 +362,7 @@ export default function Home() {
                   "LoRA adapters for efficient customization",
                   "Complete data sovereignty",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-white/70">
+                  <li key={i} className="flex items-center gap-2.5 text-sm text-muted-foreground">
                     <Check className="h-4 w-4 text-emerald-400 flex-shrink-0" />
                     {item}
                   </li>
@@ -386,14 +371,14 @@ export default function Home() {
             </div>
 
             {/* Enterprise Integration */}
-            <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-colors">
+            <div className="bg-card border border-border rounded-2xl p-8 hover:border-border/80 transition-colors">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                   <Database className="h-5 w-5 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-medium">Enterprise Integration</h3>
               </div>
-              <p className="text-white/50 mb-6 text-sm leading-relaxed">
+              <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                 Native RAG and function calling capabilities enable seamless system connectivity with your existing
                 enterprise software stack.
               </p>
@@ -403,7 +388,7 @@ export default function Home() {
                   "Function calling for system interaction",
                   "API-first flexible connectivity",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-white/70">
+                  <li key={i} className="flex items-center gap-2.5 text-sm text-muted-foreground">
                     <Check className="h-4 w-4 text-blue-400 flex-shrink-0" />
                     {item}
                   </li>
@@ -412,14 +397,14 @@ export default function Home() {
             </div>
 
             {/* Agentic Automation */}
-            <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-colors">
+            <div className="bg-card border border-border rounded-2xl p-8 hover:border-border/80 transition-colors">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-10 w-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
                   <Zap className="h-5 w-5 text-purple-400" />
                 </div>
                 <h3 className="text-xl font-medium">Agentic Automation</h3>
               </div>
-              <p className="text-white/50 mb-6 text-sm leading-relaxed">
+              <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                 Orchestrated AI agents handle tasks end-to-end autonomously, reducing manual workflows and increasing
                 operational efficiency.
               </p>
@@ -429,7 +414,7 @@ export default function Home() {
                   "Intelligent task prioritization",
                   "Adaptive learning from interactions",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-2.5 text-sm text-white/70">
+                  <li key={i} className="flex items-center gap-2.5 text-sm text-muted-foreground">
                     <Check className="h-4 w-4 text-purple-400 flex-shrink-0" />
                     {item}
                   </li>
@@ -438,21 +423,21 @@ export default function Home() {
             </div>
 
             {/* Model Governance */}
-            <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-colors">
+            <div className="bg-card border border-border rounded-2xl p-8 hover:border-border/80 transition-colors">
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-10 w-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
                   <Lock className="h-5 w-5 text-amber-400" />
                 </div>
                 <h3 className="text-xl font-medium">Model Governance</h3>
               </div>
-              <p className="text-white/50 mb-6 text-sm leading-relaxed">
+              <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                 Comprehensive governance framework with audit trails, model registry, and automated compliance
                 reporting.
               </p>
               <ul className="space-y-3">
                 {["Immutable audit trails", "Centralized model registry", "Automated compliance reports"].map(
                   (item, i) => (
-                    <li key={i} className="flex items-center gap-2.5 text-sm text-white/70">
+                    <li key={i} className="flex items-center gap-2.5 text-sm text-muted-foreground">
                       <Check className="h-4 w-4 text-amber-400 flex-shrink-0" />
                       {item}
                     </li>
@@ -471,7 +456,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">
               Enterprise Model Governance
             </h2>
-            <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Complete compliance framework with real-world enterprise applications
             </p>
           </div>
@@ -498,10 +483,10 @@ export default function Home() {
               },
             ].map((item, i) => (
               <div key={i} className="group">
-                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 h-full hover:border-white/10 transition-all">
-                  <div className="text-3xl font-semibold text-white/10 mb-4">{item.num}</div>
-                  <h3 className="text-lg font-medium mb-4 text-white">{item.title}</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">{item.description}</p>
+                <div className="bg-card border border-border rounded-2xl p-8 h-full hover:border-border/80 transition-all">
+                  <div className="text-3xl font-semibold text-muted-foreground/20 mb-4">{item.num}</div>
+                  <h3 className="text-lg font-medium mb-4 text-foreground">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -509,12 +494,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+      <section className="py-32 bg-gradient-to-b from-transparent via-muted/20 to-transparent">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Left - Visual */}
-              <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8">
+              <div className="bg-card border border-border rounded-2xl p-8">
                 <div className="space-y-4">
                   {[
                     { label: "Model Deployment", status: "Active", color: "emerald" },
@@ -522,8 +507,8 @@ export default function Home() {
                     { label: "Security Scan", status: "Passed", color: "emerald" },
                     { label: "Auto Scaling", status: "Enabled", color: "purple" },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4 bg-white/5 rounded-xl p-4">
-                      <div className="h-8 w-8 rounded-lg bg-white/10 flex items-center justify-center">
+                    <div key={i} className="flex items-center gap-4 bg-muted/50 rounded-xl p-4">
+                      <div className="h-8 w-8 rounded-lg bg-muted flex items-center justify-center">
                         <div
                           className={`h-3 w-3 rounded ${item.color === "emerald"
                             ? "bg-emerald-400/60"
@@ -534,7 +519,7 @@ export default function Home() {
                         />
                       </div>
                       <div className="flex-1">
-                        <div className="text-sm text-white/80">{item.label}</div>
+                        <div className="text-sm text-foreground/80">{item.label}</div>
                       </div>
                       <div
                         className={`text-xs px-3 py-1 rounded-full ${item.color === "emerald"
@@ -553,13 +538,13 @@ export default function Home() {
 
               {/* Right - Content */}
               <div>
-                <div className="text-xs font-medium text-white/40 uppercase tracking-[0.2em] mb-4">
+                <div className="text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4">
                   For Technical Teams & Enterprise Leaders
                 </div>
                 <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
                   Enterprise-grade development with measurable ROI
                 </h2>
-                <p className="text-white/50 mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-8 leading-relaxed">
                   Built by enterprise engineers for enterprise engineers. Our secure CI/CD pipeline integrates with
                   existing DevSecOps tools while adding AI-specific governance controls. JenesisAI delivers quantifiable
                   business impact with Fortune 500 implementations consistently yielding multi-million dollar cost
@@ -573,8 +558,8 @@ export default function Home() {
                     { value: "3.4x", label: "Faster Deployment" },
                   ].map((stat, i) => (
                     <div key={i}>
-                      <div className="text-2xl md:text-3xl font-semibold text-white mb-1">{stat.value}</div>
-                      <div className="text-xs text-white/40">{stat.label}</div>
+                      <div className="text-2xl md:text-3xl font-semibold text-foreground mb-1">{stat.value}</div>
+                      <div className="text-xs text-muted-foreground">{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -586,7 +571,7 @@ export default function Home() {
                     "Containerized deployment with automatic scaling",
                     "ROI tracking dashboard with real-time metrics",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-sm text-white/70">
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                       <Check className="h-4 w-4 text-emerald-400 mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
@@ -600,16 +585,16 @@ export default function Home() {
 
       <section className="py-32">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto bg-gradient-to-br from-white/[0.05] to-white/[0.02] border border-white/10 rounded-3xl p-10 md:p-14">
+          <div className="max-w-5xl mx-auto bg-gradient-to-br from-muted/50 to-muted/20 border border-border rounded-3xl p-10 md:p-14">
             <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-full text-xs font-medium mb-6">
+              <div className="inline-flex items-center gap-2 bg-muted px-3 py-1.5 rounded-full text-xs font-medium mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 For Investors
               </div>
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-5">
                 Driving Innovation in Enterprise AI
               </h2>
-              <p className="text-white/50 mb-10 leading-relaxed">
+              <p className="text-muted-foreground mb-10 leading-relaxed">
                 JenesisAI is positioned at the forefront of the enterprise AI revolution with proprietary technology and
                 rapidly growing customer base.
               </p>
@@ -622,13 +607,13 @@ export default function Home() {
                   { value: "99.9%", label: "Platform Uptime" },
                 ].map((stat, i) => (
                   <div key={i}>
-                    <div className="text-xl md:text-2xl font-semibold text-white mb-1">{stat.value}</div>
-                    <div className="text-xs text-white/40">{stat.label}</div>
+                    <div className="text-xl md:text-2xl font-semibold text-foreground mb-1">{stat.value}</div>
+                    <div className="text-xs text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              <Button className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-sm font-medium">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 text-sm font-medium">
                 Investor Relations
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -644,17 +629,17 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-6">
               Ready to transform your enterprise with AI?
             </h2>
-            <p className="text-white/50 text-lg mb-10 max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
               Deploy secure, scalable, and compliant AI solutions that drive measurable business outcomes.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-sm font-medium">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 text-sm font-medium">
                 Request Enterprise Demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/5 rounded-full px-8 h-12 text-sm font-medium bg-transparent"
+                className="border-border text-foreground hover:bg-accent rounded-full px-8 h-12 text-sm font-medium bg-transparent"
               >
                 Contact Sales
               </Button>
@@ -664,17 +649,17 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-16">
+      <footer className="border-t border-border py-16">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
             <div className="col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="h-8 w-8 rounded-lg bg-white flex items-center justify-center text-black font-bold text-sm">
+                <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
                   J
                 </div>
                 <span className="font-semibold text-lg">JenesisAI</span>
               </div>
-              <p className="text-white/40 text-sm leading-relaxed max-w-xs">
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
                 Enterprise AI orchestration platform with security-first architecture.
               </p>
             </div>
@@ -710,7 +695,7 @@ export default function Home() {
                 <ul className="space-y-3">
                   {section.links.map((link, j) => (
                     <li key={j}>
-                      <Link href={link.href} className="text-white/40 hover:text-white text-sm transition-colors">
+                      <Link href={link.href} className="text-muted-foreground hover:text-foreground text-sm transition-colors">
                         {link.name}
                       </Link>
                     </li>
@@ -720,11 +705,11 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/30 text-xs">© 2025 JenesisAI. All rights reserved.</p>
+          <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground text-xs">© 2025 JenesisAI. All rights reserved.</p>
             <div className="flex gap-4">
               {["X", "GitHub", "LinkedIn"].map((social, i) => (
-                <Link key={i} href="#" className="text-white/30 hover:text-white text-xs transition-colors">
+                <Link key={i} href="#" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
                   {social}
                 </Link>
               ))}

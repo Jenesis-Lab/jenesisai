@@ -20,10 +20,6 @@ export const COMPANIES = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png",
   },
   {
-    name: "Stable Diffusion",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Stable_Diffusion_logo.svg",
-  },
-  {
     name: "GitHub Copilot",
     logo: "https://upload.wikimedia.org/wikipedia/commons/0/0a/GitHub_Copilot_%282025%29.svg",
   },

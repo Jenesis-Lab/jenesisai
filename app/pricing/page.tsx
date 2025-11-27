@@ -79,34 +79,34 @@ export default function PricingPage() {
     switch (planId) {
       case "enterprise":
         return {
-          ring: "ring-white/10",
+          ring: "ring-border",
           iconBg: "bg-amber-500/20 text-amber-400 ring-amber-500/30 group-hover:bg-amber-500/30",
-          checkBg: "bg-white/10 text-white/60 group-hover:bg-amber-500 group-hover:text-white",
+          checkBg: "bg-muted text-muted-foreground group-hover:bg-amber-500 group-hover:text-white",
           hover: "hover:ring-amber-500/50",
         }
       default:
         return {
-          ring: "ring-white/10",
-          iconBg: "bg-white/10 text-white/60 ring-white/10 group-hover:bg-white/20",
-          checkBg: "bg-white/10 text-white/60 group-hover:bg-white/20",
-          hover: "hover:ring-white/30",
+          ring: "ring-border",
+          iconBg: "bg-muted text-muted-foreground ring-border group-hover:bg-accent",
+          checkBg: "bg-muted text-muted-foreground group-hover:bg-accent",
+          hover: "hover:ring-border/80",
         }
     }
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       <main className="pt-32 pb-24">
         {/* Header */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-white/60 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted border border-border text-sm text-muted-foreground mb-6">
             <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
             Simple, transparent pricing
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">Plans for all sizes</h1>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Choose the perfect plan for your team. Scale as you grow with transparent pricing and no hidden fees.
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function PricingPage() {
                 <div
                   key={plan.id}
                   className={cn(
-                    "group relative flex flex-col rounded-2xl bg-white/[0.03] ring-1 transition-all duration-300",
+                    "group relative flex flex-col rounded-2xl bg-card ring-1 transition-all duration-300",
                     colors.ring,
                     colors.hover,
                   )}
@@ -152,13 +152,13 @@ export default function PricingPage() {
                       </div>
                     </div>
 
-                    <p className="text-white/50 text-sm mb-6">{plan.description}</p>
+                    <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
 
                     {/* Price */}
                     <div className="mb-8">
                       <div className="flex items-baseline gap-1">
                         <span className="text-4xl font-bold">{plan.price === 0 ? "Free" : `$${plan.price}`}</span>
-                        {plan.price > 0 && <span className="text-white/40">/month</span>}
+                        {plan.price > 0 && <span className="text-muted-foreground">/month</span>}
                       </div>
                     </div>
 
@@ -174,7 +174,7 @@ export default function PricingPage() {
                           >
                             <Check className="h-3 w-3" />
                           </div>
-                          <span className="text-sm text-white/70">{feature}</span>
+                          <span className="text-sm text-muted-foreground">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -185,7 +185,7 @@ export default function PricingPage() {
                         "w-full transition-all",
                         plan.popular
                           ? "bg-indigo-500 hover:bg-indigo-600 text-white"
-                          : "bg-white/10 hover:bg-white/20 text-white",
+                          : "bg-secondary hover:bg-secondary/80 text-secondary-foreground",
                       )}
                       size="lg"
                       asChild
@@ -205,7 +205,7 @@ export default function PricingPage() {
         <div className="max-w-4xl mx-auto px-6 mt-32">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-white/60">Everything you need to know about JenesisAI</p>
+            <p className="text-muted-foreground">Everything you need to know about JenesisAI</p>
           </div>
 
           <div className="space-y-4">
@@ -233,10 +233,10 @@ export default function PricingPage() {
             ].map((faq, i) => (
               <div
                 key={i}
-                className="bg-white/[0.03] border border-white/10 rounded-xl p-6 hover:bg-white/[0.05] transition-colors"
+                className="bg-card border border-border rounded-xl p-6 hover:bg-accent transition-colors"
               >
                 <h3 className="font-semibold text-lg mb-3">{faq.q}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -244,20 +244,20 @@ export default function PricingPage() {
 
         {/* Bottom CTA */}
         <div className="max-w-4xl mx-auto px-6 mt-32">
-          <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-white/10 rounded-2xl p-12 text-center">
+          <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-border rounded-2xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
-            <p className="text-white/60 mb-8 max-w-xl mx-auto">
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               Join leading enterprises already transforming their operations with JenesisAI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white/20 text-white hover:bg-white/10 bg-transparent"
+                className="border-border text-foreground hover:bg-accent bg-transparent"
               >
                 Schedule Demo
               </Button>
-              <Button size="lg" className="bg-white text-black hover:bg-white/90" asChild>
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                 <Link href={FRONTEND_PLATFORM_URL}>Start Free Trial</Link>
               </Button>
             </div>
