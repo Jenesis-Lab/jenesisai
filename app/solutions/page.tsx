@@ -1,0 +1,140 @@
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Shield, Zap, Database, LineChart } from "lucide-react"
+import Navbar from "@/components/navbar"
+
+export default function SolutionsPage() {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+
+      <main className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold mb-8">Our Solutions</h1>
+
+        <div className="max-w-4xl mx-auto">
+          <p className="mb-12 text-lg">
+            JenesisAI offers a comprehensive suite of enterprise AI solutions designed to transform your business
+            operations.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card>
+              <CardHeader>
+                <div className="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center mb-2">
+                  <Shield className="h-6 w-6 text-purple-600" />
+                </div>
+                <CardTitle>Privacy Architecture</CardTitle>
+                <CardDescription>Secure, compliant AI deployment</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  On-prem LLMs with LoRA adapters for full data control. Keep your sensitive data secure while
+                  leveraging the power of AI.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" size="sm">
+                  Learn more
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="h-10 w-10 rounded-lg bg-blue-100 flex items-center justify-center mb-2">
+                  <Database className="h-6 w-6 text-blue-600" />
+                </div>
+                <CardTitle>Enterprise Integration</CardTitle>
+                <CardDescription>Seamless connectivity with existing systems</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Native RAG + function calling for seamless system connectivity. Integrate AI capabilities with your
+                  existing enterprise software stack.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" size="sm">
+                  Learn more
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="h-10 w-10 rounded-lg bg-green-100 flex items-center justify-center mb-2">
+                  <Zap className="h-6 w-6 text-green-600" />
+                </div>
+                <CardTitle>Agentic Automation</CardTitle>
+                <CardDescription>End-to-end task automation</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Orchestrated AI agents handle tasks end-to-end, autonomously. Reduce manual workflows and increase
+                  operational efficiency.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" size="sm">
+                  Learn more
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="h-10 w-10 rounded-lg bg-orange-100 flex items-center justify-center mb-2">
+                  <LineChart className="h-6 w-6 text-orange-600" />
+                </div>
+                <CardTitle>Access Control</CardTitle>
+                <CardDescription>Role-based permissions</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Role-based permissions with secure sandboxed execution. Ensure the right people have access to the
+                  right AI capabilities.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" size="sm">
+                  Learn more
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/contact">
+              <Button size="lg">Contact Us for a Demo</Button>
+            </Link>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="container mx-auto py-12 px-4 mt-32 border-t">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center gap-2 mb-4 md:mb-0">
+            <div className="h-6 w-6 rounded-full bg-purple-500"></div>
+            <span className="font-medium">JenesisAI</span>
+          </div>
+
+          <div className="flex gap-6">
+            <Link href="/features" className="text-gray-600 hover:text-gray-900">
+              Features
+            </Link>
+            <Link href="/solutions" className="text-gray-600 hover:text-gray-900">
+              Solutions
+            </Link>
+            <Link href="/pricing" className="text-gray-600 hover:text-gray-900">
+              Pricing
+            </Link>
+          </div>
+
+          <div className="mt-4 md:mt-0 text-sm text-gray-500">© 2025 JenesisAI</div>
+        </div>
+      </footer>
+    </div>
+  )
+}

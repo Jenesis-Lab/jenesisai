@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Complete theme redesign - dark mode first, professional enterprise look */
+@layer base {
+  :root {
+    /* Modern glass morphism color palette */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 209 95% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 209 95% 51%;
+
+    --radius: 0.75rem;
+
+    /* Glass morphism effects */
+    --glass-bg: 0 0% 100%;
+    --glass-border: 210 40% 90%;
+    --glass-shadow: 210 20% 80%;
+    
+    /* Status colors */
+    --status-preparing: 209 95% 51%;
+    --status-thinking: 271 81% 56%;
+    --status-running: 142 76% 36%;
+    --status-paused: 38 92% 50%;
+    --status-warning: 38 92% 50%;
+    --status-error: 0 84% 60%;
+    --status-success: 142 76% 36%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Font size scales */
+    --font-size-multiplier: 1;
+  }
+
+  html.font-sm {
+    --font-size-multiplier: 0.875;
+  }
+
+  html.font-md {
+    --font-size-multiplier: 1;
+  }
+
+  html.font-lg {
+    --font-size-multiplier: 1.125;
+  }
+
+  .dark {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 209 95% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 209 95% 51%;
+
+    /* Glass morphism effects (dark mode) */
+    --glass-bg: 222 47% 7%;
+    --glass-border: 217 33% 25%;
+    --glass-shadow: 222 47% 3%;
+
+    --status-preparing: 209 95% 51%;
+    --status-thinking: 271 81% 56%;
+    --status-running: 142 76% 36%;
+    --status-paused: 38 92% 50%;
+    --status-warning: 38 92% 50%;
+    --status-error: 0 84% 60%;
+    --status-success: 142 76% 36%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 224 76% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+@layer utilities {
+  .section-spacing {
+    @apply py-24 md:py-32;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-balance;
+  }
+
+  .section-description {
+    @apply text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mt-4 leading-relaxed text-balance;
+  }
+}
+
+/* Infinite scroll animation for logo carousel */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70;
+}
