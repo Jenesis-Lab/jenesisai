@@ -24,7 +24,7 @@ export default function Home() {
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-white/70">New Release</span>
             <span className="text-white/40">|</span>
-            <span className="text-white/90">Streamline your ML workflow with v2.0</span>
+            <span className="text-white/90">Agentic AI, Board and Orchestration v1.0</span>
             <ChevronRight className="h-4 w-4 text-white/50 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
