@@ -26,7 +26,7 @@ on:
 env:
   AWS_REGION: us-east-1
   APP_NAME: jenesis-ai-landing
-  NEXT_PUBLIC_FRONTEND_PLATFORM_URL: https://app.jenesisai.com
+  NEXT_PUBLIC_FRONTEND_PLATFORM_URL: https://app.jenesisai.org
 
 jobs:
   deploy:
