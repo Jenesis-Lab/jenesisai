@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 .next
+out
+deploy.zip
+
+.env
 
 # Editor directories and files
 .vscode/*

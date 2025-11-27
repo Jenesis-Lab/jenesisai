@@ -1,0 +1,138 @@
+# ==============================================================================
+# Landing Page Deployment Workflow
+# ==============================================================================
+# Purpose:
+#   - Build Next.js application (Static Export)
+#   - Deploy directly to AWS Amplify (No S3 bucket required)
+#   - Auto-create Amplify App if missing
+#
+# Usage:
+#   - Triggers automatically on push to main branch
+#   - Manual trigger supports custom domain setup
+# ==============================================================================
+
+name: Deploy Landing Page
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      domain_name:
+        description: 'Custom Domain Name (e.g., jenesisai.org)'
+        required: false
+        type: string
+
+env:
+  AWS_REGION: us-east-1
+  APP_NAME: jenesis-ai-landing
+  NEXT_PUBLIC_FRONTEND_PLATFORM_URL: https://app.jenesisai.com
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build application
+        env:
+          NEXT_PUBLIC_FRONTEND_PLATFORM_URL: ${{ env.NEXT_PUBLIC_FRONTEND_PLATFORM_URL }}
+        run: |
+          npm run build
+          # Create deployment zip from 'out' directory
+          cd out
+          zip -r ../deploy.zip .
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to Amplify
+        run: |
+          # 1. Resolve App ID (Find or Create)
+          echo "🔍 Resolving Amplify App: ${{ env.APP_NAME }}"
+          APP_ID=$(aws amplify list-apps --query "apps[?name=='${{ env.APP_NAME }}'].appId | [0]" --output text)
+          
+          if [ "$APP_ID" == "None" ] || [ -z "$APP_ID" ]; then
+            echo "⚠️ App not found. Creating new Amplify App..."
+            APP_ID=$(aws amplify create-app --name "${{ env.APP_NAME }}" --platform WEB --query 'app.appId' --output text)
+            aws amplify create-branch --app-id "$APP_ID" --branch-name main --stage PRODUCTION
+            echo "✅ Created App ID: $APP_ID"
+          else
+            echo "✅ Found App ID: $APP_ID"
+          fi
+
+          # 2. Create Deployment (Get Upload URL)
+          echo "🚀 Creating deployment..."
+          CREATION_INFO=$(aws amplify create-deployment --app-id $APP_ID --branch-name main --output json)
+          JOB_ID=$(echo $CREATION_INFO | jq -r '.jobId')
+          UPLOAD_URL=$(echo $CREATION_INFO | jq -r '.zipUploadUrl')
+
+          # 3. Upload Artifact
+          echo "⬆️ Uploading artifact..."
+          curl -f -H "Content-Type: application/zip" -T deploy.zip "$UPLOAD_URL"
+
+          # 4. Start Deployment
+          echo "▶️ Starting deployment (Job ID: $JOB_ID)..."
+          aws amplify start-deployment --app-id $APP_ID --branch-name main --job-id $JOB_ID --output text
+
+          # 5. Monitor Status
+          echo "⏳ Waiting for completion..."
+          while true; do
+            STATUS=$(aws amplify get-job --app-id $APP_ID --branch-name main --job-id $JOB_ID --query 'job.summary.status' --output text)
+            echo "Status: $STATUS"
+            if [ "$STATUS" == "SUCCEED" ]; then
+              echo "✅ Deployment Complete!"
+              break
+            elif [ "$STATUS" == "FAILED" ] || [ "$STATUS" == "CANCELLED" ]; then
+              echo "❌ Deployment Failed."
+              exit 1
+            fi
+            sleep 5
+          done
+          
+          # 6. Output URL
+          DEFAULT_DOMAIN=$(aws amplify get-app --app-id $APP_ID --query 'app.defaultDomain' --output text)
+          echo "app_id=$APP_ID" >> $GITHUB_ENV
+          echo "default_domain=$DEFAULT_DOMAIN" >> $GITHUB_ENV
+
+      - name: Configure Domain (Optional)
+        if: ${{ github.event.inputs.domain_name != '' }}
+        run: |
+          APP_ID="${{ env.app_id }}"
+          DOMAIN="${{ github.event.inputs.domain_name }}"
+          
+          # Check if domain exists
+          if ! aws amplify get-domain-association --app-id $APP_ID --domain-name $DOMAIN >/dev/null 2>&1; then
+            echo "➕ Associating domain: $DOMAIN"
+            aws amplify create-domain-association \
+              --app-id $APP_ID \
+              --domain-name $DOMAIN \
+              --sub-domain-settings "[{\"prefix\": \"\", \"branchName\": \"main\"}, {\"prefix\": \"www\", \"branchName\": \"main\"}]" \
+              --enable-auto-sub-domain
+          else
+            echo "✅ Domain $DOMAIN already associated."
+          fi
+
+      - name: Summary
+        run: |
+          echo "======================================================="
+          echo "🌐 App URL: https://main.${{ env.default_domain }}"
+          if [ -n "${{ github.event.inputs.domain_name }}" ]; then
+            echo "🌐 Custom Domain: https://${{ github.event.inputs.domain_name }}"
+          fi
+          echo "======================================================="

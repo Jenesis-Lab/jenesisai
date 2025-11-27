@@ -36,14 +36,6 @@ export const COMPANIES = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png",
   },
   {
-    name: "Grammarly",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Grammarly_logo.svg",
-  },
-  {
-    name: "HubSpot",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/HubSpot_Logo.svg",
-  },
-  {
     name: "Canva",
     logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg",
   },

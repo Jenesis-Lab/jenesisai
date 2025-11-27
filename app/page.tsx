@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronRight, Shield, Zap, Database, Check, Lock } from "lucide-react"
 import Navbar from "@/components/navbar"
 import { LogoCarousel } from "@/components/logo-carousel"
+import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 
 export default function Home() {
   return (
@@ -44,9 +45,11 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-10">
-                <Button className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-sm font-medium">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                <Button className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-12 text-sm font-medium" asChild>
+                  <Link href={FRONTEND_PLATFORM_URL}>
+                    Get Started
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button
                   variant="outline"
@@ -116,15 +119,14 @@ export default function Home() {
                     ].map((stat, i) => (
                       <div key={i} className="bg-white/5 rounded-xl p-3">
                         <div
-                          className={`h-1 w-6 rounded-full mb-2 ${
-                            stat.color === "emerald"
-                              ? "bg-emerald-400/60"
-                              : stat.color === "blue"
-                                ? "bg-blue-400/60"
-                                : stat.color === "purple"
-                                  ? "bg-purple-400/60"
-                                  : "bg-amber-400/60"
-                          }`}
+                          className={`h-1 w-6 rounded-full mb-2 ${stat.color === "emerald"
+                            ? "bg-emerald-400/60"
+                            : stat.color === "blue"
+                              ? "bg-blue-400/60"
+                              : stat.color === "purple"
+                                ? "bg-purple-400/60"
+                                : "bg-amber-400/60"
+                            }`}
                         />
                         <div className="text-white/90 text-sm font-medium">{stat.value}</div>
                         <div className="text-white/30 text-[10px]">{stat.label}</div>
@@ -523,26 +525,24 @@ export default function Home() {
                     <div key={i} className="flex items-center gap-4 bg-white/5 rounded-xl p-4">
                       <div className="h-8 w-8 rounded-lg bg-white/10 flex items-center justify-center">
                         <div
-                          className={`h-3 w-3 rounded ${
-                            item.color === "emerald"
-                              ? "bg-emerald-400/60"
-                              : item.color === "blue"
-                                ? "bg-blue-400/60"
-                                : "bg-purple-400/60"
-                          }`}
+                          className={`h-3 w-3 rounded ${item.color === "emerald"
+                            ? "bg-emerald-400/60"
+                            : item.color === "blue"
+                              ? "bg-blue-400/60"
+                              : "bg-purple-400/60"
+                            }`}
                         />
                       </div>
                       <div className="flex-1">
                         <div className="text-sm text-white/80">{item.label}</div>
                       </div>
                       <div
-                        className={`text-xs px-3 py-1 rounded-full ${
-                          item.color === "emerald"
-                            ? "bg-emerald-500/20 text-emerald-400"
-                            : item.color === "blue"
-                              ? "bg-blue-500/20 text-blue-400"
-                              : "bg-purple-500/20 text-purple-400"
-                        }`}
+                        className={`text-xs px-3 py-1 rounded-full ${item.color === "emerald"
+                          ? "bg-emerald-500/20 text-emerald-400"
+                          : item.color === "blue"
+                            ? "bg-blue-500/20 text-blue-400"
+                            : "bg-purple-500/20 text-purple-400"
+                          }`}
                       >
                         {item.status}
                       </div>

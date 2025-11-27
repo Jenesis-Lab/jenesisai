@@ -1,20 +1,19 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check, Zap, Layers, Crown } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cn } from "@/lib/utils"
+import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 
 type Plan = {
   id: string
   name: string
   description: string
-  monthlyPrice: number
-  yearlyPrice: number
+  price: number
   icon: React.ReactNode
   features: string[]
   popular?: boolean
@@ -22,60 +21,52 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    id: "starter",
-    name: "Starter",
-    description: "Perfect for individuals and small projects",
-    monthlyPrice: 49,
-    yearlyPrice: 390,
+    id: "free",
+    name: "Free",
+    description: "Perfect for individuals getting started with AI.",
+    price: 0,
     icon: <Zap className="h-6 w-6" />,
     features: [
-      "Up to 5 team members",
-      "Basic model training",
-      "Standard support (48hr response)",
-      "Community access",
-      "Basic analytics",
+      "Daily Limit of 10 credits",
+      "Agentic Chat & 3 Board",
+      "Max 3 Spaces and 3 Extensions",
+      "Publish & Share",
     ],
   },
   {
-    id: "pro",
-    name: "Professional",
-    description: "For growing teams with advanced needs",
-    monthlyPrice: 199,
-    yearlyPrice: 1990,
+    id: "plus",
+    name: "Plus",
+    description: "For power users who need more resources and capabilities.",
+    price: 15,
     icon: <Layers className="h-6 w-6" />,
     popular: true,
     features: [
-      "Up to 50 team members",
-      "Advanced model fine-tuning",
-      "Priority support (12hr response)",
-      "API access",
-      "Custom integrations",
-      "Advanced analytics & reporting",
+      "Access to all basic features",
+      "Daily Limit of 1000 credits",
+      "Unlimited Spaces, 200+ Extensions",
+      "Advanced Chat and Agentic Board",
+      "Export, Publish & Share",
+      "Basic email support",
     ],
   },
   {
     id: "enterprise",
     name: "Enterprise",
-    description: "Full-scale AI deployment for large organizations",
-    monthlyPrice: 399,
-    yearlyPrice: 3990,
+    description: "For teams requiring unlimited access and priority support.",
+    price: 30,
     icon: <Crown className="h-6 w-6" />,
     features: [
-      "Unlimited team members",
-      "Custom model development",
-      "Dedicated support (4hr response)",
-      "On-premises deployment",
-      "Enterprise SSO & security",
-      "SLA guarantees",
-      "Dedicated account manager",
-      "Custom training & onboarding",
+      "Access to all plus features",
+      "Unlimited on-demand credits",
+      "Unlimited Spaces, Extensions & Boards",
+      "Team Collaboration, Sharing & Editing",
+      "Custom Extensions & Development",
+      "Priority chat and email support",
     ],
   },
 ]
 
 export default function PricingPage() {
-  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("monthly")
-
   const getPlanColors = (planId: string, isPopular: boolean) => {
     if (isPopular) {
       return {
@@ -120,45 +111,11 @@ export default function PricingPage() {
           </p>
         </div>
 
-        {/* Billing Toggle */}
-        <div className="flex justify-center mb-16">
-          <div className="bg-white/5 p-1 rounded-full inline-flex border border-white/10">
-            <button
-              className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-medium transition-all",
-                billingPeriod === "monthly" ? "bg-white text-black" : "text-white/60 hover:text-white",
-              )}
-              onClick={() => setBillingPeriod("monthly")}
-            >
-              Monthly
-            </button>
-            <button
-              className={cn(
-                "px-6 py-2.5 rounded-full text-sm font-medium transition-all flex items-center gap-2",
-                billingPeriod === "yearly" ? "bg-white text-black" : "text-white/60 hover:text-white",
-              )}
-              onClick={() => setBillingPeriod("yearly")}
-            >
-              Yearly
-              <span
-                className={cn(
-                  "text-xs px-2 py-0.5 rounded-full",
-                  billingPeriod === "yearly" ? "bg-emerald-500 text-white" : "bg-emerald-500/20 text-emerald-400",
-                )}
-              >
-                Save 20%
-              </span>
-            </button>
-          </div>
-        </div>
-
         {/* Pricing Cards */}
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan) => {
               const colors = getPlanColors(plan.id, plan.popular || false)
-              const price = billingPeriod === "monthly" ? plan.monthlyPrice : plan.yearlyPrice
-              const period = billingPeriod === "monthly" ? "month" : "year"
 
               return (
                 <div
@@ -200,14 +157,9 @@ export default function PricingPage() {
                     {/* Price */}
                     <div className="mb-8">
                       <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-bold">${price}</span>
-                        <span className="text-white/40">/{period}</span>
+                        <span className="text-4xl font-bold">{plan.price === 0 ? "Free" : `$${plan.price}`}</span>
+                        {plan.price > 0 && <span className="text-white/40">/month</span>}
                       </div>
-                      {billingPeriod === "yearly" && (
-                        <p className="text-sm text-emerald-400 mt-1">
-                          Save ${plan.monthlyPrice * 12 - plan.yearlyPrice} annually
-                        </p>
-                      )}
                     </div>
 
                     {/* Features */}
@@ -236,8 +188,11 @@ export default function PricingPage() {
                           : "bg-white/10 hover:bg-white/20 text-white",
                       )}
                       size="lg"
+                      asChild
                     >
-                      Get Started
+                      <Link href={FRONTEND_PLATFORM_URL}>
+                        {plan.price === 0 ? "Get Started" : "Upgrade Now"}
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -256,24 +211,24 @@ export default function PricingPage() {
           <div className="space-y-4">
             {[
               {
-                q: "How does JenesisAI ensure data privacy and security?",
-                a: "JenesisAI employs a privacy-centric architecture with on-premises deployment options, ensuring your data never leaves your secure environment. We implement enterprise-grade encryption, role-based access controls, and comply with SOC 2, GDPR, and HIPAA. Our platform undergoes regular security audits and penetration testing.",
+                q: "What are Credits?",
+                a: "Credits are the currency used within JenesisAI to perform AI actions. Every time you chat with an agent, run a task, or use an extension, it consumes credits. Different models and complexities consume different amounts of credits.",
               },
               {
-                q: "What integration capabilities does your platform offer?",
-                a: "Our platform provides seamless integration through our API-first architecture. We support native connectors for major enterprise software (SAP, Salesforce, Microsoft), databases, and cloud services. Our function calling capabilities allow direct interaction with your systems, while our RAG implementation ensures accurate responses based on your proprietary data.",
+                q: "What is the difference between the Free and Plus plan?",
+                a: "The Free plan is great for trying out JenesisAI with a daily limit of 10 credits and basic access. The Plus plan unlocks 1000 daily credits, unlimited Spaces, access to over 200+ Extensions, advanced Agentic Chat, and priority support.",
               },
               {
-                q: "How quickly can we expect to see ROI from implementing JenesisAI?",
-                a: "Most enterprise clients see initial ROI within 3-6 months of deployment. Our platform reduces operational costs by automating routine tasks (35% average reduction), improves decision-making through predictive analytics, and increases employee productivity by 25-40%.",
+                q: "What happens if I run out of credits?",
+                a: "On the Free plan, you'll need to wait for your daily credits to refresh the next day. On the Plus plan, you have a much higher limit, but if you need even more, you can upgrade to Enterprise for unlimited on-demand credits.",
               },
               {
-                q: "What makes your model governance framework enterprise-ready?",
-                a: "Our enterprise-grade governance includes comprehensive audit trails, centralized model registry with version control, approval workflows, and role-based access controls. We provide automated compliance reporting, continuous monitoring for model drift and bias, and detailed performance metrics.",
+                q: "Can I cancel my subscription at any time?",
+                a: "Yes, you can cancel your Plus or Enterprise subscription at any time. Your benefits will continue until the end of your current billing cycle.",
               },
               {
-                q: "What level of technical expertise is required?",
-                a: "JenesisAI is designed for both technical and non-technical users. Our no-code interface allows business users to create AI solutions without programming. For technical teams, we provide comprehensive APIs, SDKs, and development tools. Enterprise clients receive dedicated implementation support and training.",
+                q: "What are Spaces and Extensions?",
+                a: "Spaces are dedicated workspaces where you can organize your agents and tasks. Extensions are powerful tools that give your agents extra capabilities, like browsing the web, reading files, or connecting to external apps.",
               },
             ].map((faq, i) => (
               <div
@@ -302,8 +257,8 @@ export default function PricingPage() {
               >
                 Schedule Demo
               </Button>
-              <Button size="lg" className="bg-white text-black hover:bg-white/90">
-                Start Free Trial
+              <Button size="lg" className="bg-white text-black hover:bg-white/90" asChild>
+                <Link href={FRONTEND_PLATFORM_URL}>Start Free Trial</Link>
               </Button>
             </div>
           </div>
