@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -7,13 +8,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
-                J
-              </div>
+              <Image
+                src="/JenesisAI.png"
+                alt="JenesisAI Logo"
+                width={32}
+                height={32}
+                className="h-8 w-8 rounded-lg"
+              />
               <span className="font-semibold text-xl text-white">JenesisAI</span>
             </div>
             <p className="text-white/50 text-sm mb-6 leading-relaxed">
-              Revolutionizing enterprise operations with our cutting-edge AI platform.
+              From question to polished output — powered by AI.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-white/40 hover:text-white transition-colors">
@@ -131,7 +136,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm">© 2025 JenesisAI. All rights reserved.</p>
+          <p className="text-white/40 text-sm">© 2026 JenesisAI. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <span className="text-white/40 text-sm">SOC 2 Compliant</span>
             <span className="text-white/40 text-sm">GDPR Ready</span>

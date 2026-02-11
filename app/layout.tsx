@@ -7,9 +7,19 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "JenesisAI - Enterprise AI Solutions",
-  description: "Revolutionizing enterprise operations with our cutting-edge AI platform",
-  generator: 'v0.app'
+  title: "JenesisAI — AI Workspace for Research, Visual Creation & Collaboration",
+  description: "Turn any question into a polished report, presentation, or visual board. JenesisAI combines deep research, a drag-and-drop canvas, and multi-model AI — all in one workspace. Start free.",
+  openGraph: {
+    title: "JenesisAI — AI Workspace for Research & Visual Creation",
+    description: "Research, create, and share — all powered by AI agents. Start free.",
+    type: "website",
+    url: "https://jenesisai.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JenesisAI — AI Workspace for Research & Visual Creation",
+    description: "Research, create, and share — all powered by AI agents. Start free.",
+  },
 }
 
 export default function RootLayout({

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
@@ -9,6 +10,7 @@ import { ModeToggle } from "@/components/mode-toggle"
 
 const navItems = [
   { name: "Home", href: "/" },
+  { name: "Solutions", href: "/solutions" },
   { name: "Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
 ]
@@ -20,9 +22,13 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto py-4 px-6 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-            J
-          </div>
+          <Image
+            src="/JenesisAI.png"
+            alt="JenesisAI Logo"
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-lg"
+          />
           <span className="font-semibold text-lg text-foreground">JenesisAI</span>
         </Link>
 

@@ -27,9 +27,10 @@ const plans: Plan[] = [
     price: 0,
     icon: <Zap className="h-6 w-6" />,
     features: [
-      "Daily Limit of 10 credits",
-      "Agentic Chat & 3 Board",
-      "Max 3 Spaces and 3 Extensions",
+      "Starter: Lifetime 1K credits",
+      "Daily topup on-low credits",
+      "Agentic Chat & Boards",
+      "Spaces and Extensions",
       "Publish & Share",
     ],
   },
@@ -37,27 +38,27 @@ const plans: Plan[] = [
     id: "plus",
     name: "Plus",
     description: "For power users who need more resources and capabilities.",
-    price: 15,
+    price: 20,
     icon: <Layers className="h-6 w-6" />,
     popular: true,
     features: [
+      "Plus: Monthly 100K credits",
+      "Daily topup 10K credits",
       "Access to all basic features",
-      "Daily Limit of 1000 credits",
-      "Unlimited Spaces, 200+ Extensions",
-      "Advanced Chat and Agentic Board",
+      "Unlimited Spaces, and Extensions",
       "Export, Publish & Share",
       "Basic email support",
     ],
   },
   {
-    id: "enterprise",
-    name: "Enterprise",
+    id: "pro",
+    name: "Ultra Max",
     description: "For teams requiring unlimited access and priority support.",
-    price: 30,
+    price: 100,
     icon: <Crown className="h-6 w-6" />,
     features: [
-      "Access to all plus features",
-      "Unlimited on-demand credits",
+      "Pro: Monthly 1M credits",
+      "Daily topup + life-time + on-demand credits",
       "Unlimited Spaces, Extensions & Boards",
       "Team Collaboration, Sharing & Editing",
       "Custom Extensions & Development",
@@ -77,7 +78,7 @@ export default function PricingPage() {
       }
     }
     switch (planId) {
-      case "enterprise":
+      case "pro":
         return {
           ring: "ring-border",
           iconBg: "bg-amber-500/20 text-amber-400 ring-amber-500/30 group-hover:bg-amber-500/30",
@@ -216,11 +217,11 @@ export default function PricingPage() {
               },
               {
                 q: "What is the difference between the Free and Plus plan?",
-                a: "The Free plan is great for trying out JenesisAI with a daily limit of 10 credits and basic access. The Plus plan unlocks 1000 daily credits, unlimited Spaces, access to over 200+ Extensions, advanced Agentic Chat, and priority support.",
+                a: "The Free plan is great for trying out JenesisAI with 1,000 lifetime credits and a daily topup. The Plus plan unlocks 100K monthly credits, 10K daily topup, unlimited Spaces and Extensions, and basic email support.",
               },
               {
                 q: "What happens if I run out of credits?",
-                a: "On the Free plan, you'll need to wait for your daily credits to refresh the next day. On the Plus plan, you have a much higher limit, but if you need even more, you can upgrade to Enterprise for unlimited on-demand credits.",
+                a: "On the Free plan, you receive a small daily topup when credits are low. On Plus, you get 10K credits daily. Ultra Max includes monthly, daily, lifetime, and on-demand credits for virtually unlimited usage.",
               },
               {
                 q: "Can I cancel my subscription at any time?",
@@ -247,7 +248,7 @@ export default function PricingPage() {
           <div className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-border rounded-2xl p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Join leading enterprises already transforming their operations with JenesisAI.
+              Start free — no credit card required. Upgrade as you grow.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

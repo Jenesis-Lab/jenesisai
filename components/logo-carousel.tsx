@@ -10,7 +10,7 @@ export function LogoCarousel() {
   return (
     <div className="w-full overflow-hidden bg-background py-16 border-y border-border">
       <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-10">
-        Trusted by AI teams at
+        Powered by leading AI models
       </p>
 
       {/* Carousel container with mask */}

@@ -20,13 +20,13 @@ export default function ContactPage() {
             Get in touch
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            Let's talk about your <br />
+            Contact Our <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-              AI journey
+              Team
             </span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your enterprise with AI? Our team is here to help you get started.
+            Ready to transform your Agentic AI experience? Our team is here to help you get started.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Location</p>
-                      <p className="font-medium">San Francisco, CA</p>
+                      <p className="font-medium">Seattle, WA</p>
                     </div>
                   </div>
                 </div>
