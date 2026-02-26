@@ -1,11 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import { Mail, MapPin, Phone, ArrowRight } from "lucide-react"
+import { Mail, MapPin, ArrowRight } from "lucide-react"
 
 export default function ContactPage() {
   return (
@@ -43,16 +41,9 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">Email</p>
-                      <p className="font-medium">info@jenesis.ai</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted border border-border">
-                      <Phone className="h-5 w-5 text-indigo-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground mb-1">Phone</p>
-                      <p className="font-medium">+1 (555) 000-0000</p>
+                      <a href="mailto:jenesisai25@gmail.com" className="font-medium hover:text-indigo-400 transition-colors">
+                        jenesisai25@gmail.com
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -95,11 +86,14 @@ export default function ContactPage() {
                   For large-scale deployments and custom solutions, our enterprise team provides dedicated support.
                 </p>
                 <Button
+                  asChild
                   variant="outline"
                   size="sm"
                   className="border-border text-foreground hover:bg-accent bg-transparent"
                 >
-                  Contact Enterprise Sales
+                  <a href="mailto:jenesisai25@gmail.com?subject=Enterprise%20Inquiry%20-%20JenesisAI">
+                    Contact Enterprise Sales
+                  </a>
                 </Button>
               </div>
             </div>
@@ -108,102 +102,44 @@ export default function ContactPage() {
             <div className="lg:col-span-3">
               <div className="bg-card border border-border rounded-2xl p-8">
                 <h2 className="text-xl font-semibold mb-6">Send us a message</h2>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="firstName" className="block mb-2 text-sm font-medium text-muted-foreground">
-                        First Name
-                      </label>
-                      <Input
-                        id="firstName"
-                        placeholder="John"
-                        className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-indigo-500"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName" className="block mb-2 text-sm font-medium text-muted-foreground">
-                        Last Name
-                      </label>
-                      <Input
-                        id="lastName"
-                        placeholder="Doe"
-                        className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-indigo-500"
-                      />
-                    </div>
+                <div className="space-y-6">
+                  <p className="text-muted-foreground">
+                    Click the button below to compose an email to our team. We&apos;ll get back to you as soon as possible.
+                  </p>
+                  
+                  <div className="bg-muted/50 border border-border rounded-lg p-6">
+                    <h3 className="font-medium mb-3">What to include in your message:</h3>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-400 mt-1">•</span>
+                        <span>Your name and company</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-400 mt-1">•</span>
+                        <span>What you&apos;re interested in (demo, enterprise, partnership, support, etc.)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-400 mt-1">•</span>
+                        <span>Brief description of your project and requirements</span>
+                      </li>
+                    </ul>
                   </div>
 
-                  <div>
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-muted-foreground">
-                      Work Email
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@company.com"
-                      className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-indigo-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block mb-2 text-sm font-medium text-muted-foreground">
-                      Company
-                    </label>
-                    <Input
-                      id="company"
-                      placeholder="Your company name"
-                      className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-indigo-500"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="interest" className="block mb-2 text-sm font-medium text-muted-foreground">
-                      What are you interested in?
-                    </label>
-                    <select
-                      id="interest"
-                      className="w-full h-10 px-3 rounded-md bg-muted border border-border text-foreground focus:border-indigo-500 focus:outline-none"
-                    >
-                      <option value="" className="bg-background">
-                        Select an option
-                      </option>
-                      <option value="demo" className="bg-background">
-                        Product Demo
-                      </option>
-                      <option value="enterprise" className="bg-background">
-                        Enterprise Solutions
-                      </option>
-                      <option value="partnership" className="bg-background">
-                        Partnership Opportunities
-                      </option>
-                      <option value="support" className="bg-background">
-                        Technical Support
-                      </option>
-                      <option value="other" className="bg-background">
-                        Other
-                      </option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block mb-2 text-sm font-medium text-muted-foreground">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us about your project and requirements..."
-                      rows={5}
-                      className="bg-muted border-border text-foreground placeholder:text-muted-foreground/50 focus:border-indigo-500 resize-none"
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" size="lg">
-                    Send Message
+                  <Button 
+                    asChild
+                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90" 
+                    size="lg"
+                  >
+                    <a href="mailto:jenesisai25@gmail.com?subject=Inquiry%20from%20JenesisAI%20Website">
+                      <Mail className="mr-2 h-5 w-5" />
+                      Compose Email
+                    </a>
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                    Or send an email directly to <a href="mailto:jenesisai25@gmail.com" className="text-indigo-400 hover:underline">jenesisai25@gmail.com</a>
                   </p>
-                </form>
+                </div>
               </div>
             </div>
           </div>

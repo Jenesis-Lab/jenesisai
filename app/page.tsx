@@ -1,9 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ChevronRight, Sparkles, Layers, Workflow, Bot, Globe, Shield, Zap, Check } from "lucide-react"
+import { ArrowRight, ChevronRight, Sparkles, Layers, Workflow, Bot, Globe, Shield, Zap, Check, LayoutGrid } from "lucide-react"
 import Navbar from "@/components/navbar"
 import { LogoCarousel } from "@/components/logo-carousel"
+import { HeroCarousel } from "@/components/hero-carousel"
+import { VideoDemoModal } from "@/components/video-demo-modal"
+import { TestimonialsMarquee } from "@/components/testimonials-marquee"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 
 export default function Home() {
@@ -12,16 +15,16 @@ export default function Home() {
       <Navbar />
 
       {/* ─── Hero Section ─── */}
-      <section className="pt-32 pb-24 relative overflow-hidden">
+      <section className="pt-32 pb-28 md:pb-32 relative overflow-hidden">
         {/* Background orbs */}
         <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none animate-glow" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-tl from-cyan-500/10 via-indigo-500/10 to-transparent rounded-full blur-3xl pointer-events-none animate-glow" style={{ animationDelay: "2s" }} />
 
         {/* Announcement Banner */}
-        <div className="flex justify-center mb-14">
+        <div className="flex justify-center mb-12">
           <Link
             href="#"
-            className="group inline-flex items-center gap-2 bg-muted hover:bg-accent border border-border rounded-full px-4 py-2 text-sm transition-colors"
+            className="group inline-flex items-center gap-2 bg-muted/80 hover:bg-accent border border-border/60 rounded-full px-4 py-2 text-sm transition-all hover:shadow-lg hover:shadow-indigo-500/5"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-muted-foreground">New</span>
@@ -33,8 +36,8 @@ export default function Home() {
 
         <div className="container mx-auto px-6">
           {/* Centered Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+          <div className="max-w-4xl mx-auto text-center mb-14 md:mb-20">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
               Research. Create. Share.
               <br />
               All with{" "}
@@ -43,51 +46,28 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
               The AI workspace that turns a question into a polished report,
               presentation, or visual board — in minutes, not hours.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 text-sm font-medium" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
+              <Button 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 rounded-full px-8 h-12 text-sm font-medium transition-all" 
+                asChild
+              >
                 <Link href={FRONTEND_PLATFORM_URL}>
                   Get Started Free
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                variant="outline"
-                className="border-border text-foreground hover:bg-accent rounded-full px-8 h-12 text-sm font-medium bg-transparent"
-              >
-                Watch Demo
-              </Button>
+              <VideoDemoModal />
             </div>
           </div>
 
-          {/* Hero Product Image */}
-          <div className="relative max-w-5xl mx-auto">
-            <div className="relative rounded-2xl border border-border overflow-hidden shadow-2xl image-glow">
-              {/* Light mode image */}
-              <Image
-                src="/image_light.png"
-                alt="JenesisAI Platform — Agentic AI Dashboard"
-                width={1200}
-                height={675}
-                className="w-full h-auto dark:hidden"
-                priority
-              />
-              {/* Dark mode image */}
-              <Image
-                src="/image_dark.png"
-                alt="JenesisAI Platform — Agentic AI Dashboard"
-                width={1200}
-                height={675}
-                className="w-full h-auto hidden dark:block"
-                priority
-              />
-            </div>
-            {/* Subtle glow underneath */}
-            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Hero Product Carousel */}
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+            <HeroCarousel />
           </div>
         </div>
       </section>
@@ -308,140 +288,190 @@ export default function Home() {
             {[
               {
                 icon: <Bot className="h-6 w-6" />,
-                color: "indigo",
-                gradient: "from-indigo-500/20 via-indigo-500/5 to-transparent",
-                borderHover: "hover:border-indigo-500/30",
-                shadowHover: "hover:shadow-indigo-500/5",
-                iconBg: "bg-indigo-500/15 text-indigo-400 ring-1 ring-indigo-500/20",
                 title: "Smart Research",
                 desc: "Agents search the web, extract key data, and compile structured findings — every source cited and ready to use.",
-                visual: (
-                  <div className="absolute top-3 right-3 opacity-20">
-                    <div className="flex gap-1.5">
-                      {[...Array(3)].map((_, j) => (
-                        <div key={j} className="flex flex-col gap-1.5">
-                          {[...Array(4)].map((_, k) => (
-                            <div key={k} className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                svg: (
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                    <rect x="10" y="15" width="100" height="8" rx="2" fill="#818cf8" />
+                    <rect x="10" y="30" width="80" height="8" rx="2" fill="#a78bfa" />
+                    <rect x="10" y="45" width="90" height="8" rx="2" fill="#818cf8" />
+                    <circle cx="95" cy="19" r="4" fill="#6366f1" />
+                    <circle cx="95" cy="34" r="4" fill="#6366f1" />
+                    <circle cx="95" cy="49" r="4" fill="#6366f1" />
+                    <path d="M20 60 L30 70 L40 60" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M50 60 L60 70 L70 60" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 ),
               },
               {
                 icon: <Layers className="h-6 w-6" />,
-                color: "purple",
-                gradient: "from-purple-500/20 via-purple-500/5 to-transparent",
-                borderHover: "hover:border-purple-500/30",
-                shadowHover: "hover:shadow-purple-500/5",
-                iconBg: "bg-purple-500/15 text-purple-400 ring-1 ring-purple-500/20",
                 title: "Drag-and-Drop Canvas",
                 desc: "Drag research, images, and AI outputs onto a freeform board. Build presentations, reports, and plans visually.",
-                visual: (
-                  <div className="absolute top-4 right-4 opacity-15">
-                    <div className="w-12 h-8 border-2 border-purple-400 rounded-lg relative">
-                      <div className="absolute -bottom-2 -right-2 w-10 h-6 border-2 border-purple-400/60 rounded-lg" />
-                      <div className="absolute -bottom-4 -right-4 w-8 h-4 border-2 border-purple-400/30 rounded-lg" />
-                    </div>
-                  </div>
+                svg: (
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                    <rect x="15" y="10" width="35" height="25" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <rect x="70" y="10" width="35" height="25" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <rect x="15" y="45" width="35" height="25" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <rect x="70" y="45" width="35" height="25" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <path d="M52.5 22.5 L67.5 22.5" stroke="#a78bfa" strokeWidth="2" strokeDasharray="2 2" />
+                    <path d="M52.5 57.5 L67.5 57.5" stroke="#a78bfa" strokeWidth="2" strokeDasharray="2 2" />
+                    <circle cx="60" cy="40" r="3" fill="#6366f1" />
+                  </svg>
                 ),
               },
               {
                 icon: <Shield className="h-6 w-6" />,
-                color: "emerald",
-                gradient: "from-emerald-500/20 via-emerald-500/5 to-transparent",
-                borderHover: "hover:border-emerald-500/30",
-                shadowHover: "hover:shadow-emerald-500/5",
-                iconBg: "bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/20",
                 title: "Live Web & Code",
                 desc: "Agents browse the web and run code on your behalf — pulling live data and computed results directly into your workspace.",
-                visual: (
-                  <div className="absolute top-4 right-4 opacity-15">
-                    <div className="space-y-1.5">
-                      <div className="w-14 h-1.5 bg-emerald-400 rounded-full" />
-                      <div className="w-10 h-1.5 bg-emerald-400/70 rounded-full" />
-                      <div className="w-12 h-1.5 bg-emerald-400/50 rounded-full" />
-                      <div className="w-8 h-1.5 bg-emerald-400/30 rounded-full" />
-                    </div>
-                  </div>
+                svg: (
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                    {/* Browser window - left */}
+                    <rect x="15" y="20" width="45" height="30" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <rect x="17" y="23" width="41" height="3" rx="1" fill="#a78bfa" />
+                    <circle cx="55" cy="24.5" r="1.5" fill="#6366f1" />
+                    <rect x="18" y="28" width="38" height="2.5" rx="0.5" fill="#c4b5fd" />
+                    <rect x="18" y="32" width="32" height="2" rx="0.5" fill="#c4b5fd" />
+                    <rect x="18" y="36" width="28" height="2" rx="0.5" fill="#c4b5fd" />
+                    <rect x="18" y="40" width="25" height="2" rx="0.5" fill="#c4b5fd" />
+                    {/* Web icon - small globe above browser */}
+                    <circle cx="37.5" cy="15" r="4" fill="none" stroke="#6366f1" strokeWidth="1.5" />
+                    <path d="M33.5 15 Q35.5 13 37.5 15 Q39.5 17 41.5 15" stroke="#6366f1" strokeWidth="1" fill="none" />
+                    <path d="M33.5 15 Q35.5 17 37.5 15 Q39.5 13 41.5 15" stroke="#6366f1" strokeWidth="1" fill="none" />
+                    {/* Code symbols - right */}
+                    <rect x="75" y="25" width="30" height="20" rx="2" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <path d="M78 28 L88 28" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M78 32 L85 32" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M78 36 L87 36" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M78 40 L82 40" stroke="#c4b5fd" strokeWidth="1.5" strokeLinecap="round" />
+                    {/* Code brackets */}
+                    <path d="M72 30 L68 30 L68 40 L72 40" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" fill="none" />
+                    <path d="M105 30 L109 30 L109 40 L105 40" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" fill="none" />
+                    {/* Arrow connecting */}
+                    <path d="M63 35 L72 35" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M68 31 L72 35 L68 39" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
                 ),
               },
               {
                 icon: <Workflow className="h-6 w-6" />,
-                color: "cyan",
-                gradient: "from-cyan-500/20 via-cyan-500/5 to-transparent",
-                borderHover: "hover:border-cyan-500/30",
-                shadowHover: "hover:shadow-cyan-500/5",
-                iconBg: "bg-cyan-500/15 text-cyan-400 ring-1 ring-cyan-500/20",
                 title: "One-Click Sharing",
                 desc: "Publish boards as shareable links or export to documents. Built for teams that move fast.",
-                visual: (
-                  <div className="absolute top-3 right-3 opacity-15">
-                    <div className="relative">
-                      <div className="w-8 h-8 border-2 border-cyan-400 rounded-full" />
-                      <div className="absolute top-1/2 left-full w-4 h-px bg-cyan-400 -translate-y-1/2" />
-                      <div className="absolute top-0 left-1/2 h-4 w-px bg-cyan-400/60 -translate-x-1/2 -translate-y-full" />
-                    </div>
-                  </div>
+                svg: (
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                    {/* Board in center */}
+                    <rect x="40" y="25" width="40" height="30" rx="2" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <rect x="45" y="30" width="30" height="3" rx="1" fill="#a78bfa" />
+                    <rect x="45" y="36" width="25" height="2" rx="1" fill="#c4b5fd" />
+                    <rect x="45" y="41" width="20" height="2" rx="1" fill="#c4b5fd" />
+                    <circle cx="70" cy="32" r="2" fill="#6366f1" />
+                    {/* People/users around */}
+                    <circle cx="20" cy="30" r="4" fill="#a78bfa" />
+                    <path d="M20 34 L20 38 L18 40" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M20 34 L20 38 L22 40" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="100" cy="30" r="4" fill="#a78bfa" />
+                    <path d="M100 34 L100 38 L98 40" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M100 34 L100 38 L102 40" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="15" cy="55" r="4" fill="#a78bfa" />
+                    <path d="M15 59 L15 63 L13 65" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M15 59 L15 63 L17 65" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <circle cx="105" cy="55" r="4" fill="#a78bfa" />
+                    <path d="M105 59 L105 63 L103 65" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M105 59 L105 63 L107 65" stroke="#818cf8" strokeWidth="1.5" strokeLinecap="round" />
+                    {/* Connection lines */}
+                    <path d="M24 30 Q30 35 40 35" stroke="#c4b5fd" strokeWidth="1" strokeDasharray="2 2" fill="none" />
+                    <path d="M96 30 Q90 35 80 35" stroke="#c4b5fd" strokeWidth="1" strokeDasharray="2 2" fill="none" />
+                    <path d="M19 55 Q30 60 40 55" stroke="#c4b5fd" strokeWidth="1" strokeDasharray="2 2" fill="none" />
+                    <path d="M101 55 Q90 60 80 55" stroke="#c4b5fd" strokeWidth="1" strokeDasharray="2 2" fill="none" />
+                  </svg>
                 ),
               },
               {
                 icon: <Globe className="h-6 w-6" />,
-                color: "amber",
-                gradient: "from-amber-500/20 via-amber-500/5 to-transparent",
-                borderHover: "hover:border-amber-500/30",
-                shadowHover: "hover:shadow-amber-500/5",
-                iconBg: "bg-amber-500/15 text-amber-400 ring-1 ring-amber-500/20",
                 title: "Best AI, Auto-Routed",
                 desc: "GPT-4o, Gemini, Claude — tasks are routed to the optimal model automatically, or you choose per query.",
-                visual: (
-                  <div className="absolute top-3 right-3 opacity-15">
-                    <div className="flex gap-2">
-                      <div className="w-4 h-4 rounded-md bg-amber-400 rotate-45" />
-                      <div className="w-3 h-3 rounded-full bg-amber-400/70 mt-1" />
-                      <div className="w-4 h-4 rounded-sm bg-amber-400/50" />
-                    </div>
-                  </div>
+                svg: (
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                    {/* AI Models */}
+                    <circle cx="20" cy="20" r="7" fill="#a78bfa" />
+                    <text x="20" y="24" textAnchor="middle" fontSize="8" fill="#6366f1" fontWeight="600">G</text>
+                    <circle cx="50" cy="20" r="7" fill="#a78bfa" />
+                    <text x="50" y="24" textAnchor="middle" fontSize="8" fill="#6366f1" fontWeight="600">G</text>
+                    <circle cx="80" cy="20" r="7" fill="#a78bfa" />
+                    <text x="80" y="24" textAnchor="middle" fontSize="8" fill="#6366f1" fontWeight="600">C</text>
+                    {/* Routing lines */}
+                    <path d="M20 27 Q30 35 50 50" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" fill="none" />
+                    <path d="M50 27 Q50 35 50 50" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" fill="none" />
+                    <path d="M80 27 Q70 35 50 50" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" fill="none" />
+                    {/* Central hub */}
+                    <circle cx="50" cy="50" r="10" fill="#e0e7ff" stroke="#6366f1" strokeWidth="2" />
+                    <circle cx="50" cy="50" r="5" fill="#6366f1" />
+                    {/* Output */}
+                    <rect x="35" y="65" width="30" height="10" rx="2" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
+                    <path d="M50 60 L50 65" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+                    <rect x="38" y="68" width="24" height="2" rx="1" fill="#a78bfa" />
+                  </svg>
                 ),
               },
               {
                 icon: <Zap className="h-6 w-6" />,
-                color: "rose",
-                gradient: "from-rose-500/20 via-rose-500/5 to-transparent",
-                borderHover: "hover:border-rose-500/30",
-                shadowHover: "hover:shadow-rose-500/5",
-                iconBg: "bg-rose-500/15 text-rose-400 ring-1 ring-rose-500/20",
                 title: "Plug-In Anything",
                 desc: "Add browser control, code execution, and custom tools. The platform grows with your workflow.",
-                visual: (
-                  <div className="absolute top-3 right-4 opacity-15">
-                    <div className="relative">
-                      <div className="w-3 h-3 rounded-full bg-rose-400" />
-                      <div className="absolute -top-3 left-4 w-2.5 h-2.5 rounded-full bg-rose-400/70" />
-                      <div className="absolute top-2 left-6 w-2 h-2 rounded-full bg-rose-400/50" />
-                      <div className="absolute top-0 left-1.5 w-3 h-px bg-rose-400/40 rotate-45 origin-left" />
-                    </div>
-                  </div>
+                svg: (
+                  <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
+                    {/* Main platform/core */}
+                    <rect x="35" y="30" width="50" height="30" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="2" />
+                    <rect x="40" y="35" width="40" height="4" rx="1" fill="#a78bfa" />
+                    <rect x="40" y="42" width="30" height="3" rx="1" fill="#c4b5fd" />
+                    <rect x="40" y="48" width="35" height="3" rx="1" fill="#c4b5fd" />
+                    <rect x="40" y="54" width="25" height="3" rx="1" fill="#c4b5fd" />
+                    {/* Plugin modules - top */}
+                    <rect x="20" y="15" width="20" height="12" rx="2" fill="#e0e7ff" stroke="#6366f1" strokeWidth="1.5" />
+                    <rect x="23" y="18" width="14" height="2" rx="0.5" fill="#a78bfa" />
+                    <rect x="23" y="22" width="10" height="1.5" rx="0.5" fill="#c4b5fd" />
+                    <path d="M30 30 L35 35" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+                    {/* Plugin modules - bottom */}
+                    <rect x="80" y="53" width="20" height="12" rx="2" fill="#e0e7ff" stroke="#6366f1" strokeWidth="1.5" />
+                    <rect x="83" y="56" width="14" height="2" rx="0.5" fill="#a78bfa" />
+                    <rect x="83" y="60" width="10" height="1.5" rx="0.5" fill="#c4b5fd" />
+                    <path d="M85 53 L80 48" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+                    {/* Plugin modules - right */}
+                    <rect x="90" y="35" width="12" height="20" rx="2" fill="#e0e7ff" stroke="#6366f1" strokeWidth="1.5" />
+                    <rect x="93" y="38" width="6" height="2" rx="0.5" fill="#a78bfa" />
+                    <rect x="93" y="42" width="6" height="1.5" rx="0.5" fill="#c4b5fd" />
+                    <rect x="93" y="46" width="6" height="1.5" rx="0.5" fill="#c4b5fd" />
+                    <path d="M90 45 L85 45" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" />
+                    {/* Plus signs on plugins */}
+                    <circle cx="30" cy="21" r="3" fill="#6366f1" />
+                    <path d="M30 21 L30 18 M30 21 L30 24 M30 21 L27 21 M30 21 L33 21" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" />
+                    <circle cx="90" cy="59" r="3" fill="#6366f1" />
+                    <path d="M90 59 L90 56 M90 59 L90 62 M90 59 L87 59 M90 59 L93 59" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" />
+                    <circle cx="96" cy="45" r="3" fill="#6366f1" />
+                    <path d="M96 45 L96 42 M96 45 L96 48 M96 45 L93 45 M96 45 L99 45" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" />
+                  </svg>
                 ),
               },
             ].map((f, i) => (
               <div
                 key={i}
-                className={`relative overflow-hidden bg-card border border-border rounded-2xl transition-all duration-300 group hover:-translate-y-1 ${f.borderHover} ${f.shadowHover} hover:shadow-lg`}
+                className="relative overflow-hidden bg-card border border-border rounded-xl transition-all duration-300 group hover:border-primary/30 hover:shadow-lg hover:-translate-y-0.5"
               >
-                {/* Gradient header area */}
-                <div className={`relative h-20 bg-gradient-to-br ${f.gradient} border-b border-border/50`}>
-                  {/* Abstract visual pattern */}
-                  {f.visual}
-                  {/* Icon badge overlapping the header */}
-                  <div className={`absolute -bottom-5 left-6 inline-flex items-center justify-center h-10 w-10 rounded-xl ${f.iconBg} shadow-sm`}>
+                {/* SVG Illustration */}
+                <div className="absolute top-0 right-0 w-32 h-24 overflow-hidden opacity-40 group-hover:opacity-60 transition-opacity">
+                  <div className="absolute top-1/2 right-4 -translate-y-1/2 text-primary">
+                    {f.svg}
+                  </div>
+                </div>
+                
+                {/* Icon */}
+                <div className="absolute top-6 left-6 inline-flex items-center justify-center h-12 w-12 rounded-lg bg-muted/50 border border-border/50 group-hover:bg-[#e0e7ff] group-hover:border-primary/40 transition-colors z-10">
+                  <div className="text-muted-foreground group-hover:text-[#818cf8] transition-colors">
                     {f.icon}
                   </div>
                 </div>
+                
                 {/* Content */}
-                <div className="pt-8 pb-6 px-6">
-                  <h3 className="text-base font-medium mb-2 text-foreground">{f.title}</h3>
+                <div className="pt-24 pb-6 px-6">
+                  <h3 className="text-base font-semibold mb-2 text-foreground">{f.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
                 </div>
               </div>
@@ -592,72 +622,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── How It Works ─── */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/15 to-transparent pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-indigo-500/5 via-purple-500/3 to-transparent rounded-full blur-3xl pointer-events-none" />
+      {/* ─── Testimonials ─── */}
+      <TestimonialsMarquee />
+
+      {/* ─── Community Boards Preview ─── */}
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        {/* Background accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        
         <div className="container mx-auto px-6 relative">
-          <div className="text-center mb-20">
+          {/* Section header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-muted/80 border border-border/60 px-3 py-1.5 rounded-full text-xs font-medium mb-6">
+              <LayoutGrid className="h-3.5 w-3.5 text-indigo-400" />
+              Community Showcase
+            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">
-              How it works
+              See What Others Are Building
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Go from a blank prompt to a polished, shareable board in three steps.
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+              Explore boards created by our community. From research reports to visual presentations, see what&apos;s possible with JenesisAI.
             </p>
           </div>
 
-          {/* Horizontal step flow */}
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-              {[
-                {
-                  num: "1",
-                  title: "Ask",
-                  description:
-                    "Enter a prompt or question. Agents autonomously search the web, aggregate sources, and return structured, cited results.",
-                  color: "indigo",
-                },
-                {
-                  num: "2",
-                  title: "Build",
-                  description:
-                    "Research outputs, images, and data flow directly onto your visual board. Arrange and annotate freely to create documents, plans, or decks.",
-                  color: "purple",
-                },
-                {
-                  num: "3",
-                  title: "Share",
-                  description:
-                    "Publish your board as a link, export to PDF, or collaborate live with your team. Every iteration is saved and versioned.",
-                  color: "emerald",
-                },
-              ].map((step, i) => (
-                <div key={i} className="relative flex">
-                  <div className="flex-1 p-8">
-                    {/* Number circle */}
-                    <div className={`h-12 w-12 rounded-full flex items-center justify-center text-lg font-semibold mb-5 ${step.color === "indigo"
-                      ? "bg-indigo-500/15 text-indigo-400 ring-1 ring-indigo-500/30"
-                      : step.color === "purple"
-                        ? "bg-purple-500/15 text-purple-400 ring-1 ring-purple-500/30"
-                        : "bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/30"
-                      }`}>
-                      {step.num}
+          {/* Clickable Screenshot */}
+          <Link
+            href={`${FRONTEND_PLATFORM_URL}/boards`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block max-w-6xl mx-auto"
+          >
+            <div className="relative rounded-2xl border border-border/60 overflow-hidden shadow-2xl bg-gradient-to-br from-muted/30 to-muted/60 hover:border-primary/50 transition-all duration-500 hover:shadow-indigo-500/20 hover:-translate-y-1">
+              {/* Screenshot placeholder */}
+              <div className="relative w-full aspect-[16/9] bg-muted/50">
+                {/* Light mode image */}
+                <Image
+                  src="/image_light.png"
+                  alt="JenesisAI Community Boards Gallery"
+                  fill
+                  className="object-cover dark:hidden transition-all duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                />
+                {/* Dark mode image */}
+                <Image
+                  src="/image_dark.png"
+                  alt="JenesisAI Community Boards Gallery"
+                  fill
+                  className="object-cover hidden dark:block transition-all duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                />
+                
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                  <div className="text-center space-y-4 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500">
+                    <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+                      <LayoutGrid className="h-5 w-5" />
+                      <span className="font-semibold">Browse All Boards</span>
+                      <ArrowRight className="h-5 w-5" />
                     </div>
-                    <h3 className="text-xl font-medium mb-3 text-foreground">{step.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
                   </div>
-                  {/* Vertical divider between steps */}
-                  {i < 2 && (
-                    <div className="hidden md:block w-px bg-border self-stretch" />
-                  )}
                 </div>
-              ))}
+              </div>
+
+              {/* Badge */}
+              <div className="absolute top-4 right-4 bg-background/95 backdrop-blur-md border border-border/60 px-3.5 py-2 rounded-full text-xs font-medium shadow-xl group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-300">
+                <span>Click to explore →</span>
+              </div>
             </div>
-            {/* Outcome anchoring */}
-            <p className="text-center text-muted-foreground mt-12 text-sm italic">
-              What used to take a team hours now takes one person minutes.
-            </p>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -667,7 +699,7 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-indigo-500/8 via-purple-500/8 to-indigo-500/8 rounded-full blur-3xl pointer-events-none" />
         <div className="container mx-auto px-6 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-muted border border-border px-3 py-1.5 rounded-full text-xs font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-muted/80 border border-border/60 px-3 py-1.5 rounded-full text-xs font-medium mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               Ready to go
             </div>
@@ -675,10 +707,13 @@ export default function Home() {
               Your next project starts here
             </h2>
             <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-              Start free — no credit card required.
+              Start free — no credit card required. Join thousands of builders using JenesisAI.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 text-sm font-medium" asChild>
+              <Button 
+                className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 rounded-full px-8 h-12 text-sm font-medium transition-all" 
+                asChild
+              >
                 <Link href={FRONTEND_PLATFORM_URL}>
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -686,7 +721,7 @@ export default function Home() {
               </Button>
               <Button
                 variant="outline"
-                className="border-border text-foreground hover:bg-accent rounded-full px-8 h-12 text-sm font-medium bg-transparent"
+                className="border-border text-foreground hover:bg-accent/80 hover:border-primary/40 rounded-full px-8 h-12 text-sm font-medium bg-transparent transition-all"
                 asChild
               >
                 <Link href="/contact">
@@ -724,14 +759,11 @@ export default function Home() {
                 links: [
                   { name: "Pricing", href: "/pricing" },
                   { name: "Solutions", href: "/solutions" },
-                  { name: "Documentation", href: "#" },
                 ],
               },
               {
                 title: "Company",
                 links: [
-                  { name: "Blog", href: "#" },
-                  { name: "Careers", href: "#" },
                   { name: "Contact", href: "/contact" },
                 ],
               },
@@ -762,11 +794,15 @@ export default function Home() {
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-xs">© 2026 JenesisAI. All rights reserved.</p>
             <div className="flex gap-4">
-              {["X", "GitHub", "LinkedIn"].map((social, i) => (
-                <Link key={i} href="#" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                  {social}
-                </Link>
-              ))}
+              <Link href="https://x.com/jenesisai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
+                X
+              </Link>
+              <Link href="https://github.com/Jenesis-Lab" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
+                GitHub
+              </Link>
+              <Link href="https://www.linkedin.com/in/jenesis-ai-2517253ab/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
+                LinkedIn
+              </Link>
             </div>
           </div>
         </div>
