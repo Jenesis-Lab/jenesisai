@@ -8,23 +8,26 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const slides = [
   {
     id: 1,
-    title: "AI Workspace Overview",
-    lightImage: "/image_light.png",
-    darkImage: "/image_dark.png",
+    title: "Workspace Overview",
+    description: "Research, create, and collaborate in one place with Agentic AI.",
+    lightImage: "/slides/slide1_light.png",
+    darkImage: "/slides/slide1_dark.png",
     alt: "JenesisAI Platform — AI Workspace Dashboard"
   },
   {
     id: 2,
-    title: "Research & AI Orchestration",
-    lightImage: "/image_light.png",
-    darkImage: "/image_dark.png",
+    title: "Drag-and-Drop Canvas",
+    description: "Drop any files to the board and turn ideas into visual boards.",
+    lightImage: "/slides/slide2_light.png",
+    darkImage: "/slides/slide2_dark.png",
     alt: "JenesisAI AI Orchestration — Multi-Agent System"
   },
   {
     id: 3,
-    title: "Visual Canvas & Workflow",
-    lightImage: "/image_light.png",
-    darkImage: "/image_dark.png",
+    title: "Share & Play Visual Workflows",
+    description: "Publish and present your workflow in seconds.",
+    lightImage: "/slides/slide3-light.png",
+    darkImage: "/slides/slide3-dark.png",
     alt: "JenesisAI Visual Canvas — Intelligent Workflow"
   }
 ]
@@ -116,8 +119,18 @@ export function HeroCarousel() {
                     priority={index === 0}
                   />
                   
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Standard bottom-fade overlay over the image for caption readability */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
+                  
+                  {/* Caption */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white dark:text-white mb-2 drop-shadow-lg">
+                      {slide.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-white/90 max-w-2xl drop-shadow-md leading-relaxed">
+                      {slide.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             </CarouselItem>
