@@ -24,12 +24,20 @@ const slides = [
   },
   {
     id: 3,
+    title: "Live AI-Powered Browser",
+    description: "Agents browse the web and run code on your behalf — pulling live data and computed results directly into your workspace.",
+    lightImage: "/slides/slide3_light.png",
+    darkImage: "/slides/slide3_dark.png",
+    alt: "JenesisAI Live AI-Powered Browser"
+  },
+  {
+    id: 4,
     title: "Share & Play Visual Workflows",
     description: "Publish and present your workflow in seconds.",
-    lightImage: "/slides/slide3-light.png",
-    darkImage: "/slides/slide3-dark.png",
+    lightImage: "/slides/slide4_light.png",
+    darkImage: "/slides/slide4_dark.png",
     alt: "JenesisAI Visual Canvas — Intelligent Workflow"
-  }
+  },
 ]
 
 export function HeroCarousel() {

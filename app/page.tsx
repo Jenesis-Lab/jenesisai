@@ -657,7 +657,7 @@ export default function Home() {
               <div className="relative w-full aspect-[16/9] bg-muted/50">
                 {/* Light mode image */}
                 <Image
-                  src="/slides/slide3-light.png"
+                  src="/slides/slide4_light.png"
                   alt="JenesisAI Community Boards Gallery"
                   fill
                   className="object-cover dark:hidden transition-all duration-700 group-hover:scale-105"
@@ -665,7 +665,7 @@ export default function Home() {
                 />
                 {/* Dark mode image */}
                 <Image
-                  src="/slides/slide3-dark.png"
+                  src="/slides/slide4_dark.png"
                   alt="JenesisAI Community Boards Gallery"
                   fill
                   className="object-cover hidden dark:block transition-all duration-700 group-hover:scale-105"
