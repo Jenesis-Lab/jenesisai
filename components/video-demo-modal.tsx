@@ -11,7 +11,7 @@ interface VideoDemoModalProps {
 }
 
 export function VideoDemoModal({ 
-  videoUrl = "https://www.youtube.com/embed/kbGrzHHrfyg?autoplay=1&rel=0", 
+  videoUrl = "https://www.youtube.com/embed/KH-7JQ2Zmqs?autoplay=1&rel=0", 
   videoTitle = "JenesisAI Launch Demo" 
 }: VideoDemoModalProps) {
   const [open, setOpen] = useState(false)
