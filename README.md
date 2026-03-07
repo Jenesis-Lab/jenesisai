@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://www.jenesisai.org">Website</a> •
-  <a href="https://app.jenesisai.com">Get Started Free</a> •
+  <a href="https://app.jenesisai.org">Get Started Free</a> •
   <a href="https://www.youtube.com/watch?v=ZFH5QsQWB4E">Watch Demo</a> •
   <a href="https://x.com/jenesisai">X</a> •
   <a href="https://www.linkedin.com/company/jenesisai/">LinkedIn</a>
@@ -69,7 +69,7 @@ This **landing site** is built with:
 - **UI:** [React 19](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [Radix UI](https://www.radix-ui.com/)
 - **Deployment:** GitHub Actions → AWS Amplify (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml))
 
-The **JenesisAI platform** (app.jenesisai.com) is a separate codebase.
+The **JenesisAI platform** (app.jenesisai.org) is a separate codebase.
 
 ---
 
@@ -78,7 +78,7 @@ The **JenesisAI platform** (app.jenesisai.com) is a separate codebase.
 | | |
 |---|---|
 | **Landing** | [jenesisai.org](https://www.jenesisai.org) |
-| **App** | [app.jenesisai.com](https://app.jenesisai.com) |
+| **App** | [app.jenesisai.org](https://app.jenesisai.org) |
 | **LinkedIn** | [jenesisai](https://www.linkedin.com/company/jenesisai/) |
 
 ---
@@ -105,5 +105,5 @@ Proprietary. © 2026 JenesisAI. All rights reserved.
 ---
 
 <p align="center">
-  <a href="https://app.jenesisai.com"><strong>Get started free</strong></a> — Now available to the public.
+  <a href="https://app.jenesisai.org"><strong>Get started free</strong></a> — Now available to the public.
 </p>
