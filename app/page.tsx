@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ChevronRight, Sparkles, Layers, Workflow, Bot, Globe, Shield, Zap, Check, LayoutGrid } from "lucide-react"
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import { LogoCarousel } from "@/components/logo-carousel"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { VideoDemoModal } from "@/components/video-demo-modal"
@@ -18,40 +19,38 @@ export default function Home() {
       <Navbar />
 
       {/* ─── Hero Section ─── */}
-      <section className="pt-32 pb-28 md:pb-32 relative overflow-hidden">
+      <section className="pt-24 pb-20 md:pb-24 relative overflow-hidden">
         {/* Background orbs */}
         <div className="absolute top-10 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none animate-glow" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-tl from-cyan-500/10 via-indigo-500/10 to-transparent rounded-full blur-3xl pointer-events-none animate-glow" style={{ animationDelay: "2s" }} />
 
         {/* Announcement Banner */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-8">
           <Link
-            href="#"
+            href="https://app.jenesisai.org/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 bg-muted/80 hover:bg-accent border border-border/60 rounded-full px-4 py-2 text-sm transition-all hover:shadow-lg hover:shadow-indigo-500/5"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-muted-foreground">New</span>
+            <span className="text-muted-foreground">We&apos;re live</span>
             <span className="text-muted-foreground/30">|</span>
-            <span className="text-foreground/90">Agentic AI & Visual Canvas — now in public beta</span>
+            <span className="text-foreground/90">Agentic AI & Visual Workspace — explore now</span>
             <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
 
         <div className="container mx-auto px-6">
           {/* Centered Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-14 md:mb-20">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6 md:mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              Research. Create. Share.
+          <div className="max-w-4xl mx-auto text-center mb-10 md:mb-14">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1] mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              An Agentic Workspace
               <br />
-              All with{" "}
-              <span className="gradient-text-brand dark:gradient-text-brand gradient-text-brand-light">
-                AI
-              </span>
+              <span className="gradient-text-brand dark:gradient-text-brand gradient-text-brand-light">Powered by AI</span>
             </h1>
 
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-              The AI workspace that turns a question into a polished report,
-              presentation, or visual board — in minutes, not hours.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 md:mb-8 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+              One surface where research turns into clarity, ideas into outputs, and teams into shared intelligence. Built for how we&apos;ll work next.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
@@ -86,7 +85,7 @@ export default function Home() {
               One surface, every capability
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Deep research, visual creation, and multi-model AI — unified in a single workspace.
+              Where deep research, visual creation, and multi-model AI become one workspace—for how we&apos;ll work next.
             </p>
           </div>
 
@@ -120,7 +119,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-medium mb-3 text-foreground">Deep Research, Delivered</h3>
               <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
-                Get structured, sourced answers in seconds. AI agents search the web, compile findings, and cite every source — so you can skip the tab-switching.
+                From one question to a full, sourced workspace in seconds. AI agents search, compile, and cite every source—so you move from curiosity to clarity.
               </p>
               <Link
                 href="#"
@@ -166,7 +165,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-medium mb-3 text-foreground">Visual Canvas</h3>
               <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
-                Turn research into presentations, reports, and plans on an infinite canvas. Drag, arrange, and let AI handle the layout.
+                One canvas for documents, links, and live context. Turn research into narratives and plans—no more scattered tools.
               </p>
               <Link
                 href="#"
@@ -236,7 +235,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-medium mb-3 text-foreground">Team Workspaces</h3>
               <p className="text-muted-foreground mb-5 leading-relaxed text-sm">
-                Work together in real time. Everyone edits the same board while personal AI agents assist each team member independently.
+                One shared surface. Everyone works in the same space; AI amplifies each contributor. The future of work is collective.
               </p>
               <Link
                 href="#"
@@ -278,10 +277,10 @@ export default function Home() {
                 Research meets creation
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                JenesisAI combines conversational AI with a visual canvas — giving you a single surface to go from question to finished output. Research flows directly into your board, and every step is powered by autonomous agents.
+                JenesisAI combines conversational AI with a visual canvas — giving you a single surface to go from question to finished output. Research flows directly into your workspace, and every step is powered by autonomous agents.
               </p>
               <p className="text-muted-foreground leading-relaxed text-sm">
-                Whether you&apos;re analyzing markets, building a report, or preparing a presentation — the platform handles the research, organization, and layout so you can focus on the thinking.
+                Where research and creation become one layer. Whether you&apos;re analyzing markets, building a report, or preparing a presentation — the platform handles the research, organization, and layout so you can focus on the thinking.
               </p>
             </div>
           </div>
@@ -309,7 +308,7 @@ export default function Home() {
               {
                 icon: <Layers className="h-6 w-6" />,
                 title: "Drag-and-Drop Canvas",
-                desc: "Drag research, images, and AI outputs onto a freeform board. Build presentations, reports, and plans visually.",
+                desc: "Drag research, images, and AI outputs onto a freeform canvas. Build presentations, reports, and plans visually.",
                 svg: (
                   <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
                     <rect x="15" y="10" width="35" height="25" rx="3" fill="#e0e7ff" stroke="#818cf8" strokeWidth="1.5" />
@@ -644,7 +643,7 @@ export default function Home() {
               See What Others Are Building
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-              Explore boards created by our community. From research reports to visual presentations, see what&apos;s possible with JenesisAI.
+              Explore what others are building. From research reports to visual presentations, see what&apos;s possible with JenesisAI.
             </p>
           </div>
 
@@ -708,10 +707,10 @@ export default function Home() {
               Ready to go
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-6">
-              Your next project starts here
+              The next layer of how we work starts here
             </h2>
             <p className="text-muted-foreground text-lg mb-10 max-w-xl mx-auto">
-              Start free — no credit card required. Join thousands of builders using JenesisAI.
+              Start free — no credit card required. Join researchers and creators building what&apos;s next.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button 
@@ -737,80 +736,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Footer ─── */}
-      <footer className="border-t border-border py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-            <div className="col-span-2">
-              <div className="flex items-center gap-2.5 mb-4">
-                <Image
-                  src="/JenesisAI.png"
-                  alt="JenesisAI Logo"
-                  width={32}
-                  height={32}
-                  className="h-8 w-8 rounded-lg"
-                />
-                <span className="font-semibold text-lg">JenesisAI</span>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                A workspace where Imagination meets Intelligence
-              </p>
-            </div>
-
-            {[
-              {
-                title: "Product",
-                links: [
-                  { name: "Pricing", href: "/pricing" },
-                  { name: "Solutions", href: "/solutions" },
-                ],
-              },
-              {
-                title: "Company",
-                links: [
-                  { name: "Contact", href: "/contact" },
-                ],
-              },
-              {
-                title: "Legal",
-                links: [
-                  { name: "Privacy", href: "#" },
-                  { name: "Terms", href: "#" },
-                  { name: "Security", href: "#" },
-                ],
-              },
-            ].map((section, i) => (
-              <div key={i}>
-                <h3 className="font-medium text-sm mb-4">{section.title}</h3>
-                <ul className="space-y-3">
-                  {section.links.map((link, j) => (
-                    <li key={j}>
-                      <Link href={link.href} className="text-muted-foreground hover:text-foreground text-sm transition-colors">
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-xs">© 2026 JenesisAI. All rights reserved.</p>
-            <div className="flex gap-4">
-              <Link href="https://x.com/jenesisai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                X
-              </Link>
-              <Link href="https://github.com/Jenesis-Lab" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                GitHub
-              </Link>
-              <Link href="https://www.linkedin.com/in/jenesis-ai-2517253ab/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                LinkedIn
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

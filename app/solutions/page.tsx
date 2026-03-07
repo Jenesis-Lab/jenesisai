@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Bot, Layers, Globe, Zap, Users, Workflow } from "lucide-react"
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 import { trackGetStarted, trackContactClick } from "@/lib/analytics"
 
@@ -291,80 +292,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* Footer (matching main page) */}
-      <footer className="border-t border-border py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
-            <div className="col-span-2">
-              <div className="flex items-center gap-2.5 mb-4">
-                <Image
-                  src="/JenesisAI.png"
-                  alt="JenesisAI Logo"
-                  width={32}
-                  height={32}
-                  className="h-8 w-8 rounded-lg"
-                />
-                <span className="font-semibold text-lg">JenesisAI</span>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                From question to polished output — powered by AI.
-              </p>
-            </div>
-
-            {[
-              {
-                title: "Product",
-                links: [
-                  { name: "Pricing", href: "/pricing" },
-                  { name: "Solutions", href: "/solutions" },
-                ],
-              },
-              {
-                title: "Company",
-                links: [
-                  { name: "Contact", href: "/contact" },
-                ],
-              },
-              {
-                title: "Legal",
-                links: [
-                  { name: "Privacy", href: "#" },
-                  { name: "Terms", href: "#" },
-                  { name: "Security", href: "#" },
-                ],
-              },
-            ].map((section, i) => (
-              <div key={i}>
-                <h3 className="font-medium text-sm mb-4">{section.title}</h3>
-                <ul className="space-y-3">
-                  {section.links.map((link, j) => (
-                    <li key={j}>
-                      <Link href={link.href} className="text-muted-foreground hover:text-foreground text-sm transition-colors">
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-xs">© 2026 JenesisAI. All rights reserved.</p>
-            <div className="flex gap-4">
-              <Link href="https://x.com/jenesisai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                X
-              </Link>
-              <Link href="https://github.com/Jenesis-Lab" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                GitHub
-              </Link>
-              <Link href="https://www.linkedin.com/in/jenesis-ai-2517253ab/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground text-xs transition-colors">
-                LinkedIn
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

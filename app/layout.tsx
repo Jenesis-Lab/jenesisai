@@ -10,18 +10,18 @@ import { GA_MEASUREMENT_ID } from "@/lib/config"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "JenesisAI — AI Workspace for Research, Visual Creation & Collaboration",
-  description: "Turn any question into a polished report, presentation, or visual board. JenesisAI combines deep research, a drag-and-drop canvas, and multi-model AI — all in one workspace. Start free.",
+  title: "JenesisAI — The Visual Workspace Where Humans Interact with AI",
+  description: "Most AI tools give you answers. JenesisAI gives you a workspace. One-prompt boards, universal multi-media, shared workflows—explore at jenesisai.org. Start free.",
   openGraph: {
-    title: "JenesisAI — AI Workspace for Research & Visual Creation",
-    description: "Research, create, and share — all powered by AI agents. Start free.",
+    title: "JenesisAI — The Visual Workspace Where Humans Interact with AI",
+    description: "The workspace of the future isn't a document—it's a visual, explorable knowledge board. Learn, build, and share as naturally as you think.",
     type: "website",
-    url: "https://jenesisai.com",
+    url: "https://www.jenesisai.org",
   },
   twitter: {
     card: "summary_large_image",
-    title: "JenesisAI — AI Workspace for Research & Visual Creation",
-    description: "Research, create, and share — all powered by AI agents. Start free.",
+    title: "JenesisAI — The Visual Workspace Where Humans Interact with AI",
+    description: "The workspace of the future isn't a document—it's a visual, explorable knowledge board. Explore at jenesisai.org.",
   },
 }
 

@@ -5,8 +5,8 @@ import { Star, Quote } from "lucide-react"
 const testimonials = [
   {
     id: 1,
-    text: "I can't imagine going back to how things were before this tool. It has not only improved my work efficiency but also transformed how I approach my daily tasks and creative projects.",
-    author: "Emily Lee",
+    text: "I can't imagine going back to how things were before this workspace. It has not only improved my work efficiency but also transformed how I approach my daily tasks and creative projects.",
+    author: "Priya Sharma",
     role: "Product Manager",
     avatar: "/placeholder-user.jpg"
   },
@@ -27,21 +27,21 @@ const testimonials = [
   {
     id: 4,
     text: "After years of using various tools, this one stands out. Highly recommended for anyone looking to boost their efficiency and achieve better results consistently.",
-    author: "Sarah Chen",
+    author: "Yuki Tanaka",
     role: "Data Analyst",
     avatar: "/placeholder-user.jpg"
   },
   {
     id: 5,
-    text: "A must-have tool for any professional. It's revolutionized the way we approach problem-solving and decision-making in our organization.",
-    author: "Ivy Wilson",
+    text: "A must-have for any professional. The canvas and agents have revolutionized how we approach problem-solving and decision-making in our organization.",
+    author: "Amara Okonkwo",
     role: "Business Consultant",
     avatar: "/placeholder-user.jpg"
   },
   {
     id: 6,
     text: "The results are always impressive. This AI has helped us to not only meet but exceed our performance targets quarter after quarter.",
-    author: "Jack Brown",
+    author: "Koji Watanabe",
     role: "Performance Manager",
     avatar: "/placeholder-user.jpg"
   }
@@ -61,10 +61,10 @@ export function TestimonialsMarquee() {
             Testimonials
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-4">
-            Used by builders around the world
+            What creators are saying
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Everyone uses our product, except for the people who don&apos;t use it.
+            Researchers, creators, and teams are already building on JenesisAI—here&apos;s what they&apos;re saying.
           </p>
         </div>
 
