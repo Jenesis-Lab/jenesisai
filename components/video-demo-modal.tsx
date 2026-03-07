@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
 import { Play, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { trackWatchDemo } from "@/lib/analytics"
 
 interface VideoDemoModalProps {
   videoUrl?: string
@@ -21,7 +22,10 @@ export function VideoDemoModal({
       <Button
         variant="outline"
         className="border-border text-foreground hover:bg-accent/80 hover:border-primary/40 rounded-full px-8 h-12 text-sm font-medium bg-transparent group transition-all"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          trackWatchDemo()
+          setOpen(true)
+        }}
         type="button"
       >
         <Play className="mr-2 h-4 w-4 fill-current group-hover:scale-110 transition-transform" />

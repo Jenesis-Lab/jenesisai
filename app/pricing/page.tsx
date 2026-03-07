@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Check, Zap, Layers, Crown } from "lucide-react"
@@ -8,6 +9,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cn } from "@/lib/utils"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
+import { trackPricingView, trackPricingPlanClick, trackGetStarted, trackContactClick } from "@/lib/analytics"
 
 type Plan = {
   id: string
@@ -23,51 +25,58 @@ const plans: Plan[] = [
   {
     id: "free",
     name: "Free",
-    description: "Perfect for individuals getting started with AI.",
+    description: "Perfect for getting started",
     price: 0,
     icon: <Zap className="h-6 w-6" />,
     features: [
-      "Starter: Lifetime 1K credits",
-      "Daily topup on-low credits",
-      "Agentic Chat & Boards",
-      "Spaces and Extensions",
-      "Publish & Share",
+      "AI assistance with GPT-OSS & DeepSeek",
+      "100,000 Credits / Month",
+      "2 Deep Researches / Month",
+      "Web search included",
+      "Community support",
     ],
   },
   {
     id: "plus",
-    name: "Plus",
-    description: "For power users who need more resources and capabilities.",
+    name: "Pro",
+    description: "For daily power users",
     price: 20,
     icon: <Layers className="h-6 w-6" />,
     popular: true,
     features: [
-      "Plus: Monthly 100K credits",
-      "Daily topup 10K credits",
-      "Access to all basic features",
-      "Unlimited Spaces, and Extensions",
-      "Export, Publish & Share",
-      "Basic email support",
+      "Everything in Free",
+      "5,000,000 Credits / Month",
+      "5 Deep Researches / Month",
+      "Access to latest models (Claude, GPT)",
+      "Unlimited conversations",
+      "Priority support",
+      "All integrations",
+      "Advanced analytics",
     ],
   },
   {
     id: "pro",
-    name: "Ultra Max",
-    description: "For teams requiring unlimited access and priority support.",
+    name: "Ultra",
+    description: "For teams and professionals",
     price: 100,
     icon: <Crown className="h-6 w-6" />,
     features: [
-      "Pro: Monthly 1M credits",
-      "Daily topup + life-time + on-demand credits",
-      "Unlimited Spaces, Extensions & Boards",
-      "Team Collaboration, Sharing & Editing",
-      "Custom Extensions & Development",
-      "Priority chat and email support",
+      "Everything in Pro",
+      "15,000,000 Credits / Month",
+      "10 Deep Researches / Month",
+      "Team collaboration",
+      "Shared workspaces",
+      "Admin controls",
+      "Dedicated support",
     ],
   },
 ]
 
 export default function PricingPage() {
+  useEffect(() => {
+    trackPricingView()
+  }, [])
+
   const getPlanColors = (planId: string, isPopular: boolean) => {
     if (isPopular) {
       return {
@@ -191,7 +200,7 @@ export default function PricingPage() {
                       size="lg"
                       asChild
                     >
-                      <Link href={FRONTEND_PLATFORM_URL}>
+                      <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackPricingPlanClick(plan.name.toLowerCase())}>
                         {plan.price === 0 ? "Get Started" : "Upgrade Now"}
                       </Link>
                     </Button>
@@ -216,16 +225,16 @@ export default function PricingPage() {
                 a: "Credits are the currency used within JenesisAI to perform AI actions. Every time you chat with an agent, run a task, or use an extension, it consumes credits. Different models and complexities consume different amounts of credits.",
               },
               {
-                q: "What is the difference between the Free and Plus plan?",
-                a: "The Free plan is great for trying out JenesisAI with 1,000 lifetime credits and a daily topup. The Plus plan unlocks 100K monthly credits, 10K daily topup, unlimited Spaces and Extensions, and basic email support.",
+                q: "What is the difference between the Free and Pro plan?",
+                a: "The Free plan includes 100,000 credits per month, 2 Deep Researches, and community support. The Pro plan unlocks 5,000,000 credits per month, 5 Deep Researches, unlimited conversations, priority support, all integrations, and advanced analytics.",
               },
               {
                 q: "What happens if I run out of credits?",
-                a: "On the Free plan, you receive a small daily topup when credits are low. On Plus, you get 10K credits daily. Ultra Max includes monthly, daily, lifetime, and on-demand credits for virtually unlimited usage.",
+                a: "On the Free plan, you receive a small daily topup when credits are low. Pro includes 5M credits per month and Ultra includes 15M credits per month, with more Deep Researches and team features.",
               },
               {
                 q: "Can I cancel my subscription at any time?",
-                a: "Yes, you can cancel your Plus or Enterprise subscription at any time. Your benefits will continue until the end of your current billing cycle.",
+                a: "Yes, you can cancel your Pro or Ultra subscription at any time. Your benefits will continue until the end of your current billing cycle.",
               },
               {
                 q: "What are Spaces and Extensions?",
@@ -255,11 +264,12 @@ export default function PricingPage() {
                 variant="outline"
                 size="lg"
                 className="border-border text-foreground hover:bg-accent bg-transparent"
+                onClick={() => trackContactClick('pricing')}
               >
                 Schedule Demo
               </Button>
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                <Link href={FRONTEND_PLATFORM_URL}>Start Free Trial</Link>
+                <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackGetStarted('pricing')}>Start Free Trial</Link>
               </Button>
             </div>
           </div>

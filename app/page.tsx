@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -8,6 +10,7 @@ import { HeroCarousel } from "@/components/hero-carousel"
 import { VideoDemoModal } from "@/components/video-demo-modal"
 import { TestimonialsMarquee } from "@/components/testimonials-marquee"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
+import { trackGetStarted, trackBoardsClick, trackContactClick } from "@/lib/analytics"
 
 export default function Home() {
   return (
@@ -56,7 +59,7 @@ export default function Home() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 rounded-full px-8 h-12 text-sm font-medium transition-all" 
                 asChild
               >
-                <Link href={FRONTEND_PLATFORM_URL}>
+                <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackGetStarted('hero')}>
                   Get Started Free
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -651,6 +654,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="group block max-w-6xl mx-auto"
+            onClick={() => trackBoardsClick()}
           >
             <div className="relative rounded-2xl border border-border/60 overflow-hidden shadow-2xl bg-gradient-to-br from-muted/30 to-muted/60 hover:border-primary/50 transition-all duration-500 hover:shadow-indigo-500/20 hover:-translate-y-1">
               {/* Screenshot placeholder */}
@@ -714,7 +718,7 @@ export default function Home() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 rounded-full px-8 h-12 text-sm font-medium transition-all" 
                 asChild
               >
-                <Link href={FRONTEND_PLATFORM_URL}>
+                <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackGetStarted('cta')}>
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -724,7 +728,7 @@ export default function Home() {
                 className="border-border text-foreground hover:bg-accent/80 hover:border-primary/40 rounded-full px-8 h-12 text-sm font-medium bg-transparent transition-all"
                 asChild
               >
-                <Link href="/contact">
+                <Link href="/contact" onClick={() => trackContactClick('cta')}>
                   Talk to Us
                 </Link>
               </Button>

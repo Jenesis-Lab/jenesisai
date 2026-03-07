@@ -1,9 +1,12 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Bot, Layers, Globe, Zap, Users, Workflow } from "lucide-react"
 import Navbar from "@/components/navbar"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
+import { trackGetStarted, trackContactClick } from "@/lib/analytics"
 
 export default function SolutionsPage() {
   return (
@@ -269,7 +272,7 @@ export default function SolutionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 text-sm font-medium" asChild>
-                <Link href={FRONTEND_PLATFORM_URL}>
+                <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackGetStarted('solutions')}>
                   Get Started Free
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -279,7 +282,7 @@ export default function SolutionsPage() {
                 className="border-border text-foreground hover:bg-accent rounded-full px-8 h-12 text-sm font-medium bg-transparent"
                 asChild
               >
-                <Link href="/contact">
+                <Link href="/contact" onClick={() => trackContactClick('solutions')}>
                   Talk to Us
                 </Link>
               </Button>

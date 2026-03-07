@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Mail, MapPin, ArrowRight } from "lucide-react"
+import { trackContactClick } from "@/lib/analytics"
 
 export default function ContactPage() {
   return (
@@ -91,7 +92,10 @@ export default function ContactPage() {
                   size="sm"
                   className="border-border text-foreground hover:bg-accent bg-transparent"
                 >
-                  <a href="mailto:jenesisai25@gmail.com?subject=Enterprise%20Inquiry%20-%20JenesisAI">
+                  <a 
+                    href="mailto:jenesisai25@gmail.com?subject=Enterprise%20Inquiry%20-%20JenesisAI"
+                    onClick={() => trackContactClick('enterprise')}
+                  >
                     Contact Enterprise Sales
                   </a>
                 </Button>
@@ -130,7 +134,10 @@ export default function ContactPage() {
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90" 
                     size="lg"
                   >
-                    <a href="mailto:jenesisai25@gmail.com?subject=Inquiry%20from%20JenesisAI%20Website">
+                    <a 
+                      href="mailto:jenesisai25@gmail.com?subject=Inquiry%20from%20JenesisAI%20Website"
+                      onClick={() => trackContactClick('email')}
+                    >
                       <Mail className="mr-2 h-5 w-5" />
                       Compose Email
                     </a>

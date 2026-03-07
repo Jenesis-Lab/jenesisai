@@ -16,6 +16,8 @@ out
 deploy.zip
 
 .env
+.env.local
+.env*.local
 
 # Editor directories and files
 .vscode/*

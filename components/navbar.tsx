@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 import { ModeToggle } from "@/components/mode-toggle"
+import { trackSignIn, trackGetStarted } from "@/lib/analytics"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -52,10 +53,10 @@ export default function Navbar() {
             className="text-muted-foreground hover:text-foreground hover:bg-accent rounded-full px-5 h-9 text-sm"
             asChild
           >
-            <Link href={FRONTEND_PLATFORM_URL}>Sign in</Link>
+            <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackSignIn('navbar')}>Sign in</Link>
           </Button>
           <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-5 h-9 text-sm font-medium" asChild>
-            <Link href={FRONTEND_PLATFORM_URL}>Get Started</Link>
+            <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackGetStarted('navbar')}>Get Started</Link>
           </Button>
         </div>
 
@@ -92,14 +93,14 @@ export default function Navbar() {
                 className="text-muted-foreground hover:text-foreground hover:bg-accent rounded-full h-10 text-sm justify-start"
                 asChild
               >
-                <Link href={FRONTEND_PLATFORM_URL}>Sign in</Link>
+                <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackSignIn('navbar-mobile')}>Sign in</Link>
               </Button>
               <Button
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-10 text-sm font-medium"
                 onClick={() => setIsMenuOpen(false)}
                 asChild
               >
-                <Link href={FRONTEND_PLATFORM_URL}>Get Started</Link>
+                <Link href={FRONTEND_PLATFORM_URL} onClick={() => trackGetStarted('navbar')}>Get Started</Link>
               </Button>
             </div>
           </nav>
