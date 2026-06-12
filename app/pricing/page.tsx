@@ -225,16 +225,16 @@ export default function PricingPage() {
                 a: "Credits are the currency used within JenesisAI to perform AI actions. Every time you chat with an agent, run a task, or use an extension, it consumes credits. Different models and complexities consume different amounts of credits.",
               },
               {
-                q: "What is the difference between the Free, Plus, and Ultra Max plans?",
-                a: "The Free plan includes 1,000 lifetime starter credits with small daily top-ups when you run low, plus agentic chat, boards, spaces, and publishing. Plus ($20/month) adds 100,000 monthly credits, 10,000 daily top-up credits, unlimited spaces and extensions, and exports. Ultra Max ($100/month) includes 1,000,000 monthly credits, team collaboration and shared editing, custom extensions, and priority support.",
+                q: "What is the difference between the Free, Pro, and Ultra plans?",
+                a: "The Free plan includes 100,000 credits per month, 2 Deep Researches, web search, and community support. Pro ($20/month) unlocks 5,000,000 credits per month, 5 Deep Researches, the latest models (Claude, GPT), unlimited conversations, all integrations, and priority support. Ultra ($100/month) includes 15,000,000 credits per month, 10 Deep Researches, team collaboration, shared workspaces, admin controls, and dedicated support.",
               },
               {
                 q: "What happens if I run out of credits?",
-                a: "On the Free plan, you receive a small daily top-up when your credits are low. Plus includes 100K monthly credits with 10K daily top-ups, and Ultra Max includes 1M monthly credits with daily, lifetime, and on-demand top-up options.",
+                a: "On the Free plan, you receive a small daily top-up when your credits run low. Credits reset every month: Pro includes 5M credits per month and Ultra includes 15M credits per month, with more Deep Researches and team features.",
               },
               {
                 q: "Can I cancel my subscription at any time?",
-                a: "Yes, you can cancel your Plus or Ultra Max subscription at any time. Your benefits will continue until the end of your current billing cycle.",
+                a: "Yes, you can cancel your Pro or Ultra subscription at any time. Your benefits will continue until the end of your current billing cycle.",
               },
               {
                 q: "What are Spaces and Extensions?",

@@ -12,6 +12,14 @@ export const metadata: Metadata = {
     title: "Contact JenesisAI",
     description: "Questions, feedback, or enterprise inquiries — get in touch with the JenesisAI team.",
     url: "/contact",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The JenesisAI visual workspace — agentic research, canvas boards, and live previews",
+      },
+    ],
   },
 }
 

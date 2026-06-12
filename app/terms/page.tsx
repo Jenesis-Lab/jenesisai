@@ -51,8 +51,8 @@ export default function TermsPage() {
             <section>
               <h2>4. Plans, credits, and billing</h2>
               <p className="mb-3">
-                The Service uses credits to meter AI usage. Free accounts include starter credits and small daily top-ups.
-                Paid plans (such as Plus and Ultra Max) include larger monthly credit allowances and additional features, and
+                The Service uses credits to meter AI usage. Free accounts include monthly credits and small daily top-ups.
+                Paid plans (such as Pro and Ultra) include larger monthly credit allowances and additional features, and
                 are billed in advance on a monthly basis through Stripe.
               </p>
               <p>

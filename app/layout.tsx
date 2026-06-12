@@ -100,8 +100,8 @@ const structuredData = {
         "An agentic AI workspace that turns questions into visual, shareable boards — deep research, a drag-and-drop canvas, live AI-powered browsing, and multi-model AI in one place.",
       offers: [
         { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD" },
-        { "@type": "Offer", name: "Plus", price: "20", priceCurrency: "USD" },
-        { "@type": "Offer", name: "Ultra Max", price: "100", priceCurrency: "USD" },
+        { "@type": "Offer", name: "Pro", price: "20", priceCurrency: "USD" },
+        { "@type": "Offer", name: "Ultra", price: "100", priceCurrency: "USD" },
       ],
     },
   ],
