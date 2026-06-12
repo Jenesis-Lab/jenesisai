@@ -28,6 +28,12 @@ export const initGA = () => {
       gaOptions: {
         anonymizeIp: true,
       },
+      gtagOptions: {
+        // Page views are sent explicitly by AnalyticsTracker on every route
+        // change (including the first load) — disable the automatic one so
+        // initial loads aren't double-counted.
+        send_page_view: false,
+      },
     })
     
     if (process.env.NODE_ENV === 'development') {

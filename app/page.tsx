@@ -9,7 +9,7 @@ import Footer from "@/components/footer"
 import { LogoCarousel } from "@/components/logo-carousel"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { VideoDemoModal } from "@/components/video-demo-modal"
-import { TestimonialsMarquee } from "@/components/testimonials-marquee"
+import { UseCasesShowcase } from "@/components/use-cases-showcase"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 import { trackGetStarted, trackBoardsClick, trackContactClick } from "@/lib/analytics"
 
@@ -122,7 +122,7 @@ export default function Home() {
                 From one question to a full, sourced workspace in seconds. AI agents search, compile, and cite every source—so you move from curiosity to clarity.
               </p>
               <Link
-                href="#"
+                href="/solutions"
                 className="inline-flex items-center gap-1.5 text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 text-sm group/link"
               >
                 Learn more
@@ -168,7 +168,7 @@ export default function Home() {
                 One canvas for documents, links, and live context. Turn research into narratives and plans—no more scattered tools.
               </p>
               <Link
-                href="#"
+                href="/solutions"
                 className="inline-flex items-center gap-1.5 text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 text-sm group/link"
               >
                 Learn more
@@ -238,7 +238,7 @@ export default function Home() {
                 One shared surface. Everyone works in the same space; AI amplifies each contributor. The future of work is collective.
               </p>
               <Link
-                href="#"
+                href="/solutions"
                 className="inline-flex items-center gap-1.5 text-indigo-500 dark:text-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-300 text-sm group/link"
               >
                 Learn more
@@ -260,7 +260,7 @@ export default function Home() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border border-border shadow-xl image-glow">
                 <Image
-                  src="/ai-orchestration.png"
+                  src="/ai-orchestration.webp"
                   alt="JenesisAI Workspace"
                   width={600}
                   height={600}
@@ -390,7 +390,7 @@ export default function Home() {
               {
                 icon: <Globe className="h-6 w-6" />,
                 title: "Best AI, Auto-Routed",
-                desc: "GPT-4o, Gemini, Claude — tasks are routed to the optimal model automatically, or you choose per query.",
+                desc: "GPT, Gemini, Claude — tasks are routed to the optimal model automatically, or you choose per query.",
                 svg: (
                   <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">
                     {/* AI Models */}
@@ -512,7 +512,7 @@ export default function Home() {
                 <div className="absolute inset-3 rounded-full border border-purple-500/15 animate-[spin_25s_linear_infinite_reverse]" />
                 <div className="absolute inset-6 rounded-full overflow-hidden border border-border/50 shadow-2xl">
                   <Image
-                    src="/workflow-visualization.png"
+                    src="/workflow-visualization.webp"
                     alt="JenesisAI Intelligence Layer"
                     width={600}
                     height={600}
@@ -524,7 +524,7 @@ export default function Home() {
                 {[
                   { icon: <Bot className="h-5 w-5" />, color: "text-indigo-400", title: "Agentic Research", desc: "Agents search, aggregate, and synthesize data from across the web with full source attribution." },
                   { icon: <Layers className="h-5 w-5" />, color: "text-purple-400", title: "Visual Board", desc: "Assemble research, images, and AI outputs into presentations, plans, and documents on a freeform canvas." },
-                  { icon: <Globe className="h-5 w-5" />, color: "text-cyan-400", title: "Multi-Model AI", desc: "Route tasks to GPT-4o, Gemini, or Claude automatically — or choose the model yourself per query." },
+                  { icon: <Globe className="h-5 w-5" />, color: "text-cyan-400", title: "Multi-Model AI", desc: "Route tasks to GPT, Gemini, or Claude automatically — or choose the model yourself per query." },
                   { icon: <Zap className="h-5 w-5" />, color: "text-amber-400", title: "Live Agents", desc: "Browser control, code execution, and extensible plugins — agents that act on your behalf in real time." },
                 ].map((f, i) => (
                   <div key={i} className="bg-card/80 backdrop-blur-sm border border-border rounded-2xl p-5">
@@ -558,7 +558,7 @@ export default function Home() {
                       <Globe className="h-5 w-5" />
                     </div>
                     <h3 className="text-sm font-medium mb-1.5 text-foreground">Multi-Model AI</h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed">Route tasks to GPT-4o, Gemini, or Claude automatically — or choose the model yourself per query.</p>
+                    <p className="text-muted-foreground text-xs leading-relaxed">Route tasks to GPT, Gemini, or Claude automatically — or choose the model yourself per query.</p>
                     {/* Connector line */}
                     <div className="absolute top-1/2 -right-8 w-8 h-px border-t border-dashed border-cyan-500/30" />
                     <div className="absolute top-1/2 -right-8 translate-x-full -translate-y-1/2 h-1.5 w-1.5 rounded-full bg-cyan-400/50" />
@@ -582,7 +582,7 @@ export default function Home() {
                   {/* Image circle */}
                   <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border/40 shadow-2xl">
                     <Image
-                      src="/workflow-visualization.png"
+                      src="/workflow-visualization.webp"
                       alt="JenesisAI Intelligence Layer — Sources to Outputs"
                       width={600}
                       height={600}
@@ -624,8 +624,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Testimonials ─── */}
-      <TestimonialsMarquee />
+      {/* ─── Use Cases ─── */}
+      <UseCasesShowcase />
 
       {/* ─── Community Boards Preview ─── */}
       <section className="py-24 md:py-32 relative overflow-hidden">
@@ -660,7 +660,7 @@ export default function Home() {
               <div className="relative w-full aspect-[16/9] bg-muted/50">
                 {/* Light mode image */}
                 <Image
-                  src="/slides/slide4_light.png"
+                  src="/slides/slide4_light.webp"
                   alt="JenesisAI Community Boards Gallery"
                   fill
                   className="object-cover dark:hidden transition-all duration-700 group-hover:scale-105"
@@ -668,7 +668,7 @@ export default function Home() {
                 />
                 {/* Dark mode image */}
                 <Image
-                  src="/slides/slide4_dark.png"
+                  src="/slides/slide4_dark.webp"
                   alt="JenesisAI Community Boards Gallery"
                   fill
                   className="object-cover hidden dark:block transition-all duration-700 group-hover:scale-105"

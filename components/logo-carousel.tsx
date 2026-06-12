@@ -1,16 +1,23 @@
 "use client"
 
-import Image from "next/image"
-import { COMPANIES } from "@/lib/companies"
+// Wordmarks of the AI model families JenesisAI routes to. Rendered as text on
+// purpose: no third-party logo files to license, no external image requests.
+const MODELS = [
+  "OpenAI GPT",
+  "Anthropic Claude",
+  "Google Gemini",
+  "GPT-OSS",
+  "Open-Source Models",
+]
 
 export function LogoCarousel() {
-  // Duplicate the array to create seamless loop
-  const duplicatedCompanies = [...COMPANIES, ...COMPANIES]
+  // Duplicate the array to create a seamless loop
+  const items = [...MODELS, ...MODELS, ...MODELS]
 
   return (
     <div className="w-full overflow-hidden bg-background py-16 border-y border-border">
       <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-10">
-        Powered by leading AI models
+        Works with leading AI models
       </p>
 
       {/* Carousel container with mask */}
@@ -22,20 +29,14 @@ export function LogoCarousel() {
 
         {/* Scrolling container */}
         <div className="flex animate-scroll">
-          {duplicatedCompanies.map((company, index) => (
+          {items.map((name, index) => (
             <div
-              key={`${company.name}-${index}`}
+              key={`${name}-${index}`}
               className="flex-shrink-0 mx-10 md:mx-14 flex items-center justify-center"
             >
-              <div className="h-8 md:h-10 w-24 md:w-32 relative opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale dark:invert">
-                <Image
-                  src={company.logo || "/placeholder.svg"}
-                  alt={company.name}
-                  fill
-                  className="object-contain"
-                  unoptimized
-                />
-              </div>
+              <span className="text-lg md:text-xl font-semibold tracking-tight text-muted-foreground/50 hover:text-muted-foreground transition-colors duration-300 whitespace-nowrap select-none">
+                {name}
+              </span>
             </div>
           ))}
         </div>

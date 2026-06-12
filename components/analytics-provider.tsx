@@ -10,7 +10,8 @@ function AnalyticsTracker() {
 
   useEffect(() => {
     // Track page views on route change
-    const url = pathname + searchParams.toString()
+    const query = searchParams.toString()
+    const url = query ? `${pathname}?${query}` : pathname
     trackPageView(url)
   }, [pathname, searchParams])
 

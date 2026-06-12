@@ -98,7 +98,7 @@ export default function SolutionsPage() {
               {
                 icon: <Globe className="h-6 w-6" />,
                 title: "Multi-Model Intelligence",
-                desc: "Route tasks to the best AI model automatically — GPT-4o, Gemini, Claude — or choose manually. One workspace, every model.",
+                desc: "Route tasks to the best AI model automatically — GPT, Gemini, Claude — or choose manually. One workspace, every model.",
                 audience: "AI Engineers, Power Users",
                 svg: (
                   <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-60">

@@ -1,0 +1,37 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circular orbital ring -->
+  <circle cx="90" cy="90" r="82" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5"/>
+  <circle cx="90" cy="90" r="72" stroke="#6366f1" stroke-width="1" opacity="0.2"/>
+
+  <!-- Orbital node dots -->
+  <circle cx="90" cy="8" r="4" fill="#6366f1" opacity="0.7"/>
+  <circle cx="162" cy="55" r="3" fill="#6366f1" opacity="0.5"/>
+  <circle cx="162" cy="125" r="3.5" fill="#6366f1" opacity="0.6"/>
+  <circle cx="18" cy="55" r="3" fill="#6366f1" opacity="0.5"/>
+  <circle cx="18" cy="125" r="2.5" fill="#6366f1" opacity="0.4"/>
+  <circle cx="90" cy="172" r="4" fill="#6366f1" opacity="0.7"/>
+
+  <!-- Network connection lines from nodes -->
+  <line x1="90" y1="12" x2="90" y2="30" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+  <line x1="158" y1="57" x2="140" y2="65" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+  <line x1="22" y1="57" x2="40" y2="65" stroke="#6366f1" stroke-width="1" opacity="0.3"/>
+
+  <!-- Background circle for the monogram -->
+  <circle cx="90" cy="90" r="60" fill="#6366f1" opacity="0.08"/>
+
+  <!-- "J" letter -->
+  <path d="M58 60H74V105C74 115.5 65.5 124 55 124H50V112H55C58.866 112 62 108.866 62 105V72H58V60Z" fill="#6366f1"/>
+
+  <!-- Swirl/wave accent between J and A -->
+  <path d="M78 48C82 58 86 68 84 80C82 92 76 98 78 108C80 114 86 118 90 116" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+  <!-- Small sparkle dots along the swirl -->
+  <circle cx="82" cy="55" r="1.5" fill="#6366f1" opacity="0.5"/>
+  <circle cx="85" cy="75" r="1.5" fill="#6366f1" opacity="0.4"/>
+  <circle cx="79" cy="95" r="1.5" fill="#6366f1" opacity="0.5"/>
+
+  <!-- "A" letter -->
+  <path d="M95 60H100L122 124H108L104 112H91L95 100H101L97 88L95 60Z" fill="#6366f1"/>
+  <path d="M100 60L112 100H104L100 88V60Z" fill="#6366f1"/>
+  <rect x="93" y="98" width="20" height="8" rx="1" fill="#6366f1"/>
+</svg>

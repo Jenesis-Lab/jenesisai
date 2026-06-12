@@ -10,32 +10,32 @@ const slides = [
     id: 1,
     title: "Workspace Overview",
     description: "Research, create, and collaborate in one place with Agentic AI.",
-    lightImage: "/slides/slide1_light.png",
-    darkImage: "/slides/slide1_dark.png",
+    lightImage: "/slides/slide1_light.webp",
+    darkImage: "/slides/slide1_dark.webp",
     alt: "JenesisAI Platform — AI Workspace Dashboard"
   },
   {
     id: 2,
     title: "Drag-and-Drop Canvas",
     description: "Drop any files to the board and turn ideas into visual boards.",
-    lightImage: "/slides/slide2_light.png",
-    darkImage: "/slides/slide2_dark.png",
+    lightImage: "/slides/slide2_light.webp",
+    darkImage: "/slides/slide2_dark.webp",
     alt: "JenesisAI AI Orchestration — Multi-Agent System"
   },
   {
     id: 3,
     title: "Live AI-Powered Browser",
     description: "Agents browse the web and run code on your behalf — pulling live data and computed results directly into your workspace.",
-    lightImage: "/slides/slide3_light.png",
-    darkImage: "/slides/slide3_dark.png",
+    lightImage: "/slides/slide3_light.webp",
+    darkImage: "/slides/slide3_dark.webp",
     alt: "JenesisAI Live AI-Powered Browser"
   },
   {
     id: 4,
     title: "Share & Play Visual Workflows",
     description: "Publish and present your workflow in seconds.",
-    lightImage: "/slides/slide4_light.png",
-    darkImage: "/slides/slide4_dark.png",
+    lightImage: "/slides/slide4_light.webp",
+    darkImage: "/slides/slide4_dark.webp",
     alt: "JenesisAI Visual Canvas — Intelligent Workflow"
   },
 ]
