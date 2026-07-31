@@ -1,37 +1,12 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Circular orbital ring -->
-  <circle cx="90" cy="90" r="82" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5"/>
-  <circle cx="90" cy="90" r="72" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-
-  <!-- Orbital node dots -->
-  <circle cx="90" cy="8" r="4" fill="currentColor" opacity="0.7"/>
-  <circle cx="162" cy="55" r="3" fill="currentColor" opacity="0.5"/>
-  <circle cx="162" cy="125" r="3.5" fill="currentColor" opacity="0.6"/>
-  <circle cx="18" cy="55" r="3" fill="currentColor" opacity="0.5"/>
-  <circle cx="18" cy="125" r="2.5" fill="currentColor" opacity="0.4"/>
-  <circle cx="90" cy="172" r="4" fill="currentColor" opacity="0.7"/>
-
-  <!-- Network connection lines from nodes -->
-  <line x1="90" y1="12" x2="90" y2="30" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="158" y1="57" x2="140" y2="65" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-  <line x1="22" y1="57" x2="40" y2="65" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-
-  <!-- Background circle for the monogram -->
-  <circle cx="90" cy="90" r="60" fill="currentColor" opacity="0.08"/>
-
-  <!-- "J" letter -->
-  <path d="M58 60H74V105C74 115.5 65.5 124 55 124H50V112H55C58.866 112 62 108.866 62 105V72H58V60Z" fill="currentColor"/>
-
-  <!-- Swirl/wave accent between J and A -->
-  <path d="M78 48C82 58 86 68 84 80C82 92 76 98 78 108C80 114 86 118 90 116" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
-
-  <!-- Small sparkle dots along the swirl -->
-  <circle cx="82" cy="55" r="1.5" fill="currentColor" opacity="0.5"/>
-  <circle cx="85" cy="75" r="1.5" fill="currentColor" opacity="0.4"/>
-  <circle cx="79" cy="95" r="1.5" fill="currentColor" opacity="0.5"/>
-
-  <!-- "A" letter -->
-  <path d="M95 60H100L122 124H108L104 112H91L95 100H101L97 88L95 60Z" fill="currentColor"/>
-  <path d="M100 60L112 100H104L100 88V60Z" fill="currentColor"/>
-  <rect x="93" y="98" width="20" height="8" rx="1" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">JenesisAI</title>
+  <rect width="64" height="64" rx="18" fill="#7188FF"/>
+  <g transform="translate(8 8) scale(2)" fill="none" stroke="#171716" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.5v5.1"/>
+    <path d="M2.5 12h5.1M16.4 12h5.1"/>
+    <path d="m5.45 5.45 3.6 3.6M18.55 5.45l-3.6 3.6"/>
+    <path d="m15 15 3.55 3.55M9 15l-2.35 2.35"/>
+    <path d="M12 16.4v1.15a4 4 0 0 1-4 4H6.7"/>
+  </g>
+  <path d="m32 25.2 6.8 6.8-6.8 6.8-6.8-6.8 6.8-6.8Z" fill="#171716"/>
 </svg>

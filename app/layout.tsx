@@ -75,7 +75,7 @@ const structuredData = {
       "@id": `${SITE_URL}/#organization`,
       name: "JenesisAI",
       url: SITE_URL,
-      logo: `${SITE_URL}/JenesisAI.png`,
+      logo: `${SITE_URL}/logo.svg`,
       email: "jenesisai25@gmail.com",
       sameAs: [
         "https://x.com/jenesisai",

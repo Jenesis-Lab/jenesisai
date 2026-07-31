@@ -52,6 +52,12 @@ body {
   @apply bg-background text-foreground antialiased;
 }
 
+.jenesis-wordmark {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
 @layer base {
   * {
     @apply border-border;

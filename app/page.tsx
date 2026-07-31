@@ -43,6 +43,16 @@ export default function Home() {
         <div className="container mx-auto px-6">
           {/* Centered Hero */}
           <div className="max-w-4xl mx-auto text-center mb-10 md:mb-14">
+            <Image
+              src="/brand/jenesis-origin-motion-mark.svg"
+              alt=""
+              width={56}
+              height={56}
+              className="mx-auto mb-5 h-14 w-14"
+              aria-hidden
+              unoptimized
+              priority
+            />
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.1] mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
               An Agentic Workspace
               <br />

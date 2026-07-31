@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 import { ModeToggle } from "@/components/mode-toggle"
 import { trackSignIn, trackGetStarted } from "@/lib/analytics"
+import { BrandLogo } from "@/components/brand-logo"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -22,15 +22,8 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto py-4 px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Image
-            src="/JenesisAI.png"
-            alt="JenesisAI Logo"
-            width={32}
-            height={32}
-            className="h-8 w-8 rounded-lg"
-          />
-          <span className="font-semibold text-lg text-foreground">JenesisAI</span>
+        <Link href="/" aria-label="JenesisAI home">
+          <BrandLogo />
         </Link>
 
         {/* Desktop Navigation */}

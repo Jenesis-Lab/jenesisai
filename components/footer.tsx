@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import { BrandLogo } from "@/components/brand-logo"
 
 export default function Footer() {
   const sections = [
@@ -29,16 +29,7 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <Image
-                src="/JenesisAI.png"
-                alt="JenesisAI Logo"
-                width={32}
-                height={32}
-                className="h-8 w-8 rounded-lg"
-              />
-              <span className="font-semibold text-lg text-foreground">JenesisAI</span>
-            </div>
+            <BrandLogo className="mb-4" />
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               A workspace where Imagination meets Intelligence
             </p>
