@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">JenesisAI Brain Heart J concept</title>
+  <desc id="description">An abstract brain whose center seam becomes a subtle heart and meets the unchanged Jenesis J-tail.</desc>
+  <rect width="64" height="64" rx="18" fill="#7188FF"/>
+  <g transform="translate(8 8) scale(2)" fill="none" stroke="#171716" stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M12 5.4C11.1 3.65 8.45 3.45 7.35 5.3 5.45 5 4.05 6.65 4.5 8.55 3.05 9.55 3.35 12.1 5.1 13c-.25 2.05 1.8 3.55 3.65 2.5.7.95 2 1.25 3.25.7"
+      stroke-width="1.8"
+    />
+    <path
+      d="M12 5.4c.9-1.75 3.55-1.95 4.65-.1 1.9-.3 3.3 1.35 2.85 3.25 1.45 1 1.15 3.55-.6 4.45.25 2.05-1.8 3.55-3.65 2.5-.7.95-2 1.25-3.25.7"
+      stroke-width="1.8"
+    />
+
+    <!-- Brain seam flows into the heart notch. -->
+    <path d="M12 5.4v4.7" stroke-width="1.65"/>
+
+    <!-- Neural folds are intentionally sparse so the heart remains discoverable. -->
+    <path
+      d="M8.35 5.3c-1.1.8-1.2 2.15-.3 3.05M4.5 8.55c1.2-.35 2.5.2 2.9 1.2M5.1 13c1.1-.35 2.3.15 2.75 1.15"
+      stroke-width="1.55"
+    />
+    <path
+      d="M15.65 5.3c1.1.8 1.2 2.15.3 3.05M19.5 8.55c-1.2-.35-2.5.2-2.9 1.2M18.9 13c-1.1-.35-2.3.15-2.75 1.15"
+      stroke-width="1.55"
+    />
+
+    <!-- The heart is formed by the brain's inner folds, not added as a separate badge. -->
+    <path
+      d="M12 10.1c-.55-.9-1.25-1.35-2.15-1.35-1.4 0-2.3 1.2-2 2.6.35 1.65 2.65 3.6 4.15 5.05 1.5-1.45 3.8-3.4 4.15-5.05.3-1.4-.6-2.6-2-2.6-.9 0-1.6.45-2.15 1.35Z"
+      stroke-width="1.65"
+    />
+
+    <!-- Original Jenesis J-tail: geometry intentionally unchanged. -->
+    <path
+      d="M12 16.4v1.15a4 4 0 0 1-4 4H6.7"
+      stroke-width="2.2"
+    />
+  </g>
+</svg>

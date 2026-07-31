@@ -1,68 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 256" role="img" aria-labelledby="title">
-  <title id="title">Animated JenesisAI logo</title>
+  <title id="title">Animated JenesisAI Cognitive J logo</title>
   <style>
-    .tile {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: tile-in 700ms cubic-bezier(.16,1,.3,1) both;
-    }
-    .node {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: node-in 520ms cubic-bezier(.34,1.56,.64,1) 180ms both;
-    }
-    .ray {
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: draw 520ms cubic-bezier(.22,1,.36,1) both;
-    }
-    .ray-1 { animation-delay: 330ms; }
-    .ray-2 { animation-delay: 390ms; }
-    .ray-3 { animation-delay: 450ms; }
-    .ray-4 { animation-delay: 510ms; }
-    .tail { animation-delay: 620ms; animation-duration: 700ms; }
-    .wordmark {
-      animation: word-in 720ms cubic-bezier(.16,1,.3,1) 900ms both;
-    }
-    @keyframes tile-in {
-      from { opacity: 0; transform: scale(.84); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes node-in {
-      from { opacity: 0; transform: scale(.4) rotate(-18deg); }
-      to { opacity: 1; transform: scale(1) rotate(0); }
-    }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes word-in {
-      from { opacity: 0; transform: translateX(-18px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
+    .tile { transform-box: fill-box; transform-origin: center; animation: tile-in 700ms cubic-bezier(.16,1,.3,1) both; }
+    .draw { opacity: 0; stroke-dasharray: 1; stroke-dashoffset: 1; animation: line-in 620ms cubic-bezier(.22,1,.36,1) both; }
+    .brain { animation-delay: 260ms; }
+    .seam { animation-delay: 480ms; }
+    .folds { animation-delay: 650ms; }
+    .tail { animation-delay: 1040ms; animation-duration: 760ms; }
+    .wordmark { animation: word-in 720ms cubic-bezier(.16,1,.3,1) 1420ms both; }
+    @keyframes tile-in { from { opacity: 0; transform: scale(.84); } to { opacity: 1; transform: scale(1); } }
+    @keyframes line-in { from { opacity: 0; stroke-dashoffset: 1; } 1% { opacity: 1; } to { opacity: 1; stroke-dashoffset: 0; } }
+    @keyframes word-in { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: translateX(0); } }
     @media (prefers-reduced-motion: reduce) {
-      .tile, .node, .ray, .wordmark {
-        animation: none;
-        opacity: 1;
-        stroke-dashoffset: 0;
-        transform: none;
-      }
+      .tile, .draw, .wordmark { animation: none; opacity: 1; stroke-dashoffset: 0; transform: none; }
     }
   </style>
   <rect class="tile" width="256" height="256" rx="72" fill="#7188FF"/>
-  <g transform="translate(32 32) scale(8)" fill="none" stroke="#171716" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path class="ray ray-1" pathLength="1" d="M12 2.5v5.1"/>
-    <path class="ray ray-2" pathLength="1" d="M2.5 12h5.1M16.4 12h5.1"/>
-    <path class="ray ray-3" pathLength="1" d="m5.45 5.45 3.6 3.6M18.55 5.45l-3.6 3.6"/>
-    <path class="ray ray-4" pathLength="1" d="m15 15 3.55 3.55M9 15l-2.35 2.35"/>
-    <path class="ray tail" pathLength="1" d="M12 16.4v1.15a4 4 0 0 1-4 4H6.7"/>
+  <g transform="translate(32 32) scale(8)" fill="none" stroke="#171716" stroke-linecap="round" stroke-linejoin="round">
+    <path class="draw brain" pathLength="1" d="M12 5.4C11.1 3.65 8.45 3.45 7.35 5.3 5.45 5 4.05 6.65 4.5 8.55 3.05 9.55 3.35 12.1 5.1 13c-.25 2.05 1.8 3.55 3.65 2.5.7.95 2 1.25 3.25.7M12 5.4c.9-1.75 3.55-1.95 4.65-.1 1.9-.3 3.3 1.35 2.85 3.25 1.45 1 1.15 3.55-.6 4.45.25 2.05-1.8 3.55-3.65 2.5-.7.95-2 1.25-3.25.7" stroke-width="1.8"/>
+    <path class="draw seam" pathLength="1" d="M12 5.4v11" stroke-width="1.65"/>
+    <path class="draw folds" pathLength="1" d="M8.35 5.3c-1.1.8-1.2 2.15-.3 3.05M4.5 8.55c1.2-.35 2.5.2 2.9 1.2M5.1 13c1.1-.35 2.3.15 2.75 1.15M9 9.1c1.1.35 1.45 1.4.8 2.35M15.65 5.3c1.1.8 1.2 2.15.3 3.05M19.5 8.55c-1.2-.35-2.5.2-2.9 1.2M18.9 13c-1.1-.35-2.3.15-2.75 1.15M15 9.1c-1.1.35-1.45 1.4-.8 2.35" stroke-width="1.55"/>
+    <path class="draw tail" pathLength="1" d="M12 16.4v1.15a4 4 0 0 1-4 4H6.7" stroke-width="2.2"/>
   </g>
-  <path class="node" d="m128 100.8 27.2 27.2-27.2 27.2-27.2-27.2 27.2-27.2Z" fill="#171716"/>
-  <text
-    class="wordmark"
-    x="310"
-    y="160"
-    fill="#F3F1EB"
-    font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif"
-    font-size="94"
-    font-weight="600"
-    letter-spacing="-3"
-  >JenesisAI</text>
+  <text class="wordmark" x="310" y="160" fill="#F3F1EB" font-family="Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif" font-size="94" font-weight="600" letter-spacing="-3">JenesisAI</text>
 </svg>
