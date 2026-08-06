@@ -30,7 +30,7 @@ const plans: Plan[] = [
     icon: <Zap className="h-6 w-6" />,
     features: [
       "AI assistance with GPT-OSS & DeepSeek",
-      "100,000 Credits / Month",
+      "1,000,000 Credits / Month",
       "2 Deep Researches / Month",
       "Web search included",
       "Community support",
@@ -45,7 +45,7 @@ const plans: Plan[] = [
     popular: true,
     features: [
       "Everything in Free",
-      "5,000,000 Credits / Month",
+      "20,000,000 Credits / Month",
       "5 Deep Researches / Month",
       "Access to latest models (Claude, GPT)",
       "Unlimited conversations",
@@ -62,7 +62,7 @@ const plans: Plan[] = [
     icon: <Crown className="h-6 w-6" />,
     features: [
       "Everything in Pro",
-      "15,000,000 Credits / Month",
+      "120,000,000 Credits / Month",
       "10 Deep Researches / Month",
       "Team collaboration",
       "Shared workspaces",
@@ -226,11 +226,11 @@ export default function PricingPage() {
               },
               {
                 q: "What is the difference between the Free, Pro, and Ultra plans?",
-                a: "The Free plan includes 100,000 credits per month, 2 Deep Researches, web search, and community support. Pro ($20/month) unlocks 5,000,000 credits per month, 5 Deep Researches, the latest models (Claude, GPT), unlimited conversations, all integrations, and priority support. Ultra ($100/month) includes 15,000,000 credits per month, 10 Deep Researches, team collaboration, shared workspaces, admin controls, and dedicated support.",
+                a: "The Free plan includes 1,000,000 credits per month with Claude Sonnet as the default model, plus 2 Deep Researches, web search, documents, boards, and the Code Workspace for building apps. Pro ($20/month) unlocks 20,000,000 credits per month — roughly 400 full Claude Sonnet sessions — plus 5 Deep Researches, top-tier models (Claude Opus, GPT-5.6), scheduled goals, and priority support. Ultra ($100/month) includes 120,000,000 credits per month (6x Pro), 10 Deep Researches, 4K image generation, team collaboration, shared workspaces, and dedicated support.",
               },
               {
                 q: "What happens if I run out of credits?",
-                a: "On the Free plan, you receive a small daily top-up when your credits run low. Credits reset every month: Pro includes 5M credits per month and Ultra includes 15M credits per month, with more Deep Researches and team features.",
+                a: "On the Free plan, you receive a small daily top-up when your credits run low, and your full 1M credits come back every month. Paid plans reset monthly too: Pro includes 20M credits per month and Ultra includes 120M credits per month, with more Deep Researches and team features.",
               },
               {
                 q: "Can I cancel my subscription at any time?",

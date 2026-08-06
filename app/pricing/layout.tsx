@@ -44,7 +44,7 @@ const faqStructuredData = {
       name: "What is the difference between the Free, Pro, and Ultra plans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Free plan includes 100,000 credits per month, 2 Deep Researches, web search, and community support. Pro ($20/month) unlocks 5,000,000 credits per month, 5 Deep Researches, the latest models (Claude, GPT), unlimited conversations, all integrations, and priority support. Ultra ($100/month) includes 15,000,000 credits per month, 10 Deep Researches, team collaboration, shared workspaces, admin controls, and dedicated support.",
+        text: "The Free plan includes 1,000,000 credits per month with Claude Sonnet as the default model, plus 2 Deep Researches, web search, documents, boards, and the Code Workspace for building apps. Pro ($20/month) unlocks 20,000,000 credits per month — roughly 400 full Claude Sonnet sessions — plus 5 Deep Researches, top-tier models (Claude Opus, GPT-5.6), scheduled goals, and priority support. Ultra ($100/month) includes 120,000,000 credits per month (6x Pro), 10 Deep Researches, 4K image generation, team collaboration, shared workspaces, and dedicated support.",
       },
     },
     {
