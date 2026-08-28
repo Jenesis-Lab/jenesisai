@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ChevronRight, Sparkles, Layers, Workflow, Bot, Globe, Shield, Zap, Check, LayoutGrid } from "lucide-react"
+import { ArrowRight, ChevronRight, Sparkles, Layers, Workflow, Bot, Globe, Shield, Zap, LayoutGrid } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { LogoCarousel } from "@/components/logo-carousel"

@@ -48,15 +48,15 @@ export function HeroCarousel() {
   useEffect(() => {
     if (!api) return
 
-    setCurrent(api.selectedScrollSnap())
-
     const onSelect = () => {
       setCurrent(api.selectedScrollSnap())
     }
 
+    const initialFrame = requestAnimationFrame(onSelect)
     api.on("select", onSelect)
 
     return () => {
+      cancelAnimationFrame(initialFrame)
       api.off("select", onSelect)
     }
   }, [api])

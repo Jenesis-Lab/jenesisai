@@ -1,80 +1,52 @@
 "use client"
 
 import type React from "react"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Check, Zap, Layers, Crown } from "lucide-react"
+import { Check, Zap, Layers, Crown, Sparkles } from "lucide-react"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cn } from "@/lib/utils"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
+import {
+  SNAPSHOT_PLANS,
+  buildPricingFaq,
+  fetchPricing,
+  type PricingPlan,
+} from "@/lib/pricing"
 import { trackPricingView, trackPricingPlanClick, trackGetStarted, trackContactClick } from "@/lib/analytics"
 
-type Plan = {
-  id: string
-  name: string
-  description: string
-  price: number
-  icon: React.ReactNode
-  features: string[]
-  popular?: boolean
+// Presentation only — the icon and the "Most Popular" ribbon are the only
+// things about a plan this page gets to decide. Prices, credit grants and
+// feature bullets come from the platform API so the site can never quote a
+// number the server will not honour.
+const PLAN_PRESENTATION: Record<string, { icon: React.ReactNode; popular?: boolean }> = {
+  free: { icon: <Zap className="h-6 w-6" /> },
+  plus: { icon: <Layers className="h-6 w-6" />, popular: true },
+  pro: { icon: <Crown className="h-6 w-6" /> },
 }
 
-const plans: Plan[] = [
-  {
-    id: "free",
-    name: "Free",
-    description: "Perfect for getting started",
-    price: 0,
-    icon: <Zap className="h-6 w-6" />,
-    features: [
-      "AI assistance with GPT-OSS & DeepSeek",
-      "1,000,000 Credits / Month",
-      "2 Deep Researches / Month",
-      "Web search included",
-      "Community support",
-    ],
-  },
-  {
-    id: "plus",
-    name: "Pro",
-    description: "For daily power users",
-    price: 20,
-    icon: <Layers className="h-6 w-6" />,
-    popular: true,
-    features: [
-      "Everything in Free",
-      "20,000,000 Credits / Month",
-      "5 Deep Researches / Month",
-      "Access to latest models (Claude, GPT)",
-      "Unlimited conversations",
-      "Priority support",
-      "All integrations",
-      "Advanced analytics",
-    ],
-  },
-  {
-    id: "pro",
-    name: "Ultra",
-    description: "For teams and professionals",
-    price: 100,
-    icon: <Crown className="h-6 w-6" />,
-    features: [
-      "Everything in Pro",
-      "120,000,000 Credits / Month",
-      "10 Deep Researches / Month",
-      "Team collaboration",
-      "Shared workspaces",
-      "Admin controls",
-      "Dedicated support",
-    ],
-  },
-]
-
 export default function PricingPage() {
+  // Seeded with the build-time snapshot so the page paints instantly, then
+  // reconciled against the live catalogue. On a static export this is what
+  // lets a pricing change reach visitors without a redeploy.
+  const [plans, setPlans] = useState<PricingPlan[]>(SNAPSHOT_PLANS)
+
   useEffect(() => {
     trackPricingView()
+  }, [])
+
+  useEffect(() => {
+    const controller = new AbortController()
+    fetchPricing(controller.signal)
+      .then((feed) => {
+        if (!controller.signal.aborted) setPlans(feed.plans)
+      })
+      .catch(() => {
+        /* keep the snapshot — never blank out the pricing table */
+      })
+    return () => controller.abort()
   }, [])
 
   const getPlanColors = (planId: string, isPopular: boolean) => {
@@ -125,7 +97,9 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plans.map((plan) => {
-              const colors = getPlanColors(plan.id, plan.popular || false)
+              const presentation = PLAN_PRESENTATION[plan.id]
+              const isPopular = presentation?.popular ?? false
+              const colors = getPlanColors(plan.id, isPopular)
 
               return (
                 <div
@@ -137,7 +111,7 @@ export default function PricingPage() {
                   )}
                 >
                   {/* Popular Badge */}
-                  {plan.popular && (
+                  {isPopular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <span className="bg-indigo-500 text-white text-xs font-medium px-3 py-1 rounded-full">
                         Most Popular
@@ -155,7 +129,7 @@ export default function PricingPage() {
                           colors.iconBg,
                         )}
                       >
-                        {plan.icon}
+                        {presentation?.icon ?? <Sparkles className="h-6 w-6" />}
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{plan.name}</h3>
@@ -193,7 +167,7 @@ export default function PricingPage() {
                     <Button
                       className={cn(
                         "w-full transition-all",
-                        plan.popular
+                        isPopular
                           ? "bg-indigo-500 hover:bg-indigo-600 text-white"
                           : "bg-secondary hover:bg-secondary/80 text-secondary-foreground",
                       )}
@@ -219,28 +193,7 @@ export default function PricingPage() {
           </div>
 
           <div className="space-y-4">
-            {[
-              {
-                q: "What are Credits?",
-                a: "Credits are the currency used within JenesisAI to perform AI actions. Every time you chat with an agent, run a task, or use an extension, it consumes credits. Different models and complexities consume different amounts of credits.",
-              },
-              {
-                q: "What is the difference between the Free, Pro, and Ultra plans?",
-                a: "The Free plan includes 1,000,000 credits per month with Claude Sonnet as the default model, plus 2 Deep Researches, web search, documents, boards, and the Code Workspace for building apps. Pro ($20/month) unlocks 20,000,000 credits per month — roughly 400 full Claude Sonnet sessions — plus 5 Deep Researches, top-tier models (Claude Opus, GPT-5.6), scheduled goals, and priority support. Ultra ($100/month) includes 120,000,000 credits per month (6x Pro), 10 Deep Researches, 4K image generation, team collaboration, shared workspaces, and dedicated support.",
-              },
-              {
-                q: "What happens if I run out of credits?",
-                a: "On the Free plan, you receive a small daily top-up when your credits run low, and your full 1M credits come back every month. Paid plans reset monthly too: Pro includes 20M credits per month and Ultra includes 120M credits per month, with more Deep Researches and team features.",
-              },
-              {
-                q: "Can I cancel my subscription at any time?",
-                a: "Yes, you can cancel your Pro or Ultra subscription at any time. Your benefits will continue until the end of your current billing cycle.",
-              },
-              {
-                q: "What are Spaces and Extensions?",
-                a: "Spaces are dedicated workspaces where you can organize your agents and tasks. Extensions are powerful tools that give your agents extra capabilities, like browsing the web, reading files, or connecting to external apps.",
-              },
-            ].map((faq, i) => (
+            {buildPricingFaq(plans).map((faq, i) => (
               <div
                 key={i}
                 className="bg-card border border-border rounded-xl p-6 hover:bg-accent transition-colors"

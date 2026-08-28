@@ -1,0 +1,72 @@
+{
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free",
+      "price": 0,
+      "description": "Genuinely useful, every month",
+      "features": [
+        "50,000,000 credits / month — about 308 agent messages or 3,333 quick questions",
+        "4 Deep Researches / month",
+        "5 AI image generations / month (up to 1K)",
+        "1 voice clone",
+        "30,000 TTS characters / month",
+        "200,000 translation characters / month",
+        "Claude Sonnet included — same default model as paid plans",
+        "Research with sources & web search",
+        "Documents, presentations & interactive boards",
+        "Build apps & UIs in the Code Workspace"
+      ],
+      "monthly_credits": 50000000,
+      "deep_research_per_month": 4,
+      "agent_messages_per_month": 308,
+      "quick_questions_per_month": 3333
+    },
+    {
+      "id": "plus",
+      "name": "Pro",
+      "price": 20,
+      "description": "Abundant daily use",
+      "features": [
+        "Everything in Free",
+        "300,000,000 credits / month — about 1,851 agent messages or 20,000 quick questions",
+        "10 Deep Researches / month",
+        "50 AI image generations / month (up to 2K)",
+        "3 voice clones",
+        "200,000 TTS characters / month",
+        "5,000,000 translation characters / month",
+        "Top-tier models (Claude Opus, GPT-5.6 Sol)",
+        "Scheduled goals & recurring briefings",
+        "Browser automation",
+        "Priority support"
+      ],
+      "monthly_credits": 300000000,
+      "deep_research_per_month": 10,
+      "agent_messages_per_month": 1851,
+      "quick_questions_per_month": 20000
+    },
+    {
+      "id": "pro",
+      "name": "Ultra",
+      "price": 100,
+      "description": "For professionals and heavy agentic work",
+      "features": [
+        "Everything in Pro",
+        "1,800,000,000 credits / month — about 11,111 agent messages or 120,000 quick questions",
+        "20 Deep Researches / month",
+        "150 AI image generations / month (up to 4K)",
+        "10 voice clones",
+        "2,000,000 TTS characters / month",
+        "50,000,000 translation characters / month",
+        "Team collaboration & shared workspaces",
+        "Dedicated support"
+      ],
+      "monthly_credits": 1800000000,
+      "deep_research_per_month": 20,
+      "agent_messages_per_month": 11111,
+      "quick_questions_per_month": 120000
+    }
+  ],
+  "credits_per_agent_message": 162000,
+  "credits_per_quick_question": 15000
+}

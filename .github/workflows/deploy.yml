@@ -48,7 +48,16 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
-      
+
+      - name: Refuse vulnerable production dependencies
+        run: npm run audit:production
+
+      - name: Check code quality
+        run: npm run lint
+
+      - name: Check pricing snapshot against live billing API
+        run: npm run pricing:check
+
       - name: Build application
         env:
           NEXT_PUBLIC_FRONTEND_PLATFORM_URL: ${{ env.NEXT_PUBLIC_FRONTEND_PLATFORM_URL }}

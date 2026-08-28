@@ -1,80 +1,81 @@
 import type React from "react"
 import type { Metadata } from "next"
 
-export const metadata: Metadata = {
-  title: "Pricing — Free, Pro & Ultra Plans",
-  description:
-    "Simple, transparent JenesisAI pricing. Start free with 100K monthly credits, or upgrade to Pro ($20/mo) or Ultra ($100/mo) for premium models and team features.",
-  alternates: {
-    canonical: "/pricing",
-  },
-  openGraph: {
-    title: "JenesisAI Pricing — Free, Pro & Ultra Plans",
-    description:
-      "Start free, no credit card required. Upgrade to Pro or Ultra for more credits, premium models, and team collaboration.",
-    url: "/pricing",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "The JenesisAI visual workspace — agentic research, canvas boards, and live previews",
-      },
-    ],
-  },
+import { buildPricingFaq, fetchPricing, creditsInWords } from "@/lib/pricing"
+
+// This file is where the pricing inconsistency did the most damage. The
+// metadata description advertised "100K monthly credits" and the FAQ
+// structured data told Google that "Pro includes 5M credits per month and
+// Ultra includes 15M" — figures three resizes out of date, on the one
+// surface users could not see to correct and search engines quote verbatim.
+//
+// Nothing here is written by hand any more. The site is a static export, so
+// these run at build time against the platform API and bake the enforced
+// numbers into the published HTML.
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { plans } = await fetchPricing()
+  const free = plans.find((plan) => plan.id === "free")
+  const pro = plans.find((plan) => plan.id === "plus")
+  const ultra = plans.find((plan) => plan.id === "pro")
+
+  const description = free
+    ? `Simple, transparent JenesisAI pricing. Start free with ${creditsInWords(
+        free.monthly_credits
+      )} monthly credits — about ${free.agent_messages_per_month.toLocaleString(
+        "en-US"
+      )} agent messages — or upgrade to ${pro?.name ?? "Pro"} ($${
+        pro?.price ?? 20
+      }/mo) or ${ultra?.name ?? "Ultra"} ($${
+        ultra?.price ?? 100
+      }/mo) for premium models and team features.`
+    : "Simple, transparent JenesisAI pricing. Start free, upgrade as you grow."
+
+  return {
+    title: "Pricing — Free, Pro & Ultra Plans",
+    description,
+    alternates: {
+      canonical: "/pricing",
+    },
+    openGraph: {
+      title: "JenesisAI Pricing — Free, Pro & Ultra Plans",
+      description:
+        "Start free, no credit card required. Upgrade to Pro or Ultra for more credits, premium models, and team collaboration.",
+      url: "/pricing",
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "The JenesisAI visual workspace — agentic research, canvas boards, and live previews",
+        },
+      ],
+    },
+  }
 }
 
-// FAQ structured data — keep the questions and answers in sync with the FAQ
-// section rendered in page.tsx, which mirrors the backend plan catalog
-// (server/app_service/auth/billing/models.py PLAN_PRICES).
-const faqStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What are Credits?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Credits are the currency used within JenesisAI to perform AI actions. Every time you chat with an agent, run a task, or use an extension, it consumes credits. Different models and complexities consume different amounts of credits.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is the difference between the Free, Pro, and Ultra plans?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The Free plan includes 1,000,000 credits per month with Claude Sonnet as the default model, plus 2 Deep Researches, web search, documents, boards, and the Code Workspace for building apps. Pro ($20/month) unlocks 20,000,000 credits per month — roughly 400 full Claude Sonnet sessions — plus 5 Deep Researches, top-tier models (Claude Opus, GPT-5.6), scheduled goals, and priority support. Ultra ($100/month) includes 120,000,000 credits per month (6x Pro), 10 Deep Researches, 4K image generation, team collaboration, shared workspaces, and dedicated support.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What happens if I run out of credits?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "On the Free plan, you receive a small daily top-up when your credits run low. Credits reset every month: Pro includes 5M credits per month and Ultra includes 15M credits per month, with more Deep Researches and team features.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I cancel my subscription at any time?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes, you can cancel your Pro or Ultra subscription at any time. Your benefits will continue until the end of your current billing cycle.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What are Spaces and Extensions?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Spaces are dedicated workspaces where you can organize your agents and tasks. Extensions are powerful tools that give your agents extra capabilities, like browsing the web, reading files, or connecting to external apps.",
-      },
-    },
-  ],
-}
+export default async function PricingLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const { plans } = await fetchPricing()
 
-export default function PricingLayout({ children }: { children: React.ReactNode }) {
+  // Same builder the visible FAQ uses, so the answer Google indexes and the
+  // answer a visitor reads are the same string.
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: buildPricingFaq(plans).map((entry) => ({
+      "@type": "Question",
+      name: entry.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: entry.a,
+      },
+    })),
+  }
+
   return (
     <>
       <script

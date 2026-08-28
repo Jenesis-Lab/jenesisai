@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Bot, Layers, Globe, Zap, Users, Workflow } from "lucide-react"
 import Navbar from "@/components/navbar"
