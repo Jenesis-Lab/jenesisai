@@ -204,7 +204,7 @@ export function buildPricingFaq(plans: PricingPlan[]): PricingFaqEntry[] {
         .filter(Boolean)
         .join(". ")
         .concat(
-          ". Paid plans add top-tier models such as Claude Opus and GPT-5.6 Sol, scheduled goals, browser automation, and higher image, voice and translation quotas."
+          ". Paid plans add top-tier models such as Claude Opus and GPT-6 Sol, scheduled goals, browser automation, and higher image, voice and translation quotas."
         ),
     },
     {
