@@ -19,7 +19,7 @@ export default function TermsPage() {
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6 max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight mb-3">Terms of Service</h1>
-          <p className="text-muted-foreground text-sm mb-12">Last updated: June 12, 2026</p>
+          <p className="text-muted-foreground text-sm mb-12">Last updated: October 5, 2026</p>
 
           <div className="space-y-10 text-sm leading-relaxed text-muted-foreground [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-3 [&_strong]:text-foreground">
             <section>
@@ -53,10 +53,18 @@ export default function TermsPage() {
               <p className="mb-3">
                 The Service uses credits to meter AI usage. Free accounts include monthly credits and small daily top-ups.
                 Paid plans (such as Pro and Ultra) include larger monthly credit allowances and additional features, and
-                are billed in advance on a monthly basis through Stripe.
+                are billed in advance on a monthly basis. Plans bought on our website are billed through Stripe. Plans
+                bought in the iOS app are auto-renewable subscriptions billed by Apple through your Apple Account:
+                payment is charged when you confirm the purchase, and the subscription renews each month at the price
+                shown unless it is cancelled at least 24 hours before the end of the current period.
+              </p>
+              <p className="mb-3">
+                You can cancel a subscription at any time; access continues until the end of the current billing cycle.
+                A plan bought on our website is cancelled from the Billing page. A subscription bought in the iOS app is
+                managed and cancelled in your App Store account settings, and refunds for it are handled by Apple under
+                its own policies. Deleting your account does not cancel a subscription billed by Apple.
               </p>
               <p>
-                You can cancel a subscription at any time; access continues until the end of the current billing cycle.
                 Except where required by law, payments are non-refundable and unused credits expire as described on the
                 pricing page.
               </p>
