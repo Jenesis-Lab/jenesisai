@@ -7,8 +7,10 @@
 #   - Auto-create Amplify App if missing
 #
 # Usage:
-#   - Triggers automatically on push to main branch
-#   - Manual trigger supports custom domain setup
+#   - Manual only: a push to main publishes the commit and deploys nothing.
+#     Deploy with `gh workflow run deploy.yml --ref main` once every push
+#     for the release is done (the same rule as the app and the backend).
+#   - The optional input sets up a custom domain
 #
 # Required GitHub Secrets:
 #   - AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
@@ -18,8 +20,6 @@
 name: Deploy Landing Page
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
     inputs:
       domain_name:
