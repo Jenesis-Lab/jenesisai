@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 }
 
 // Checked against the product's code and production configuration on
-// 2026-09-23. The app's own copy (jenesisai-ui src/pages/Privacy.tsx) and the
+// 2026-09-23; voice re-checked on 2026-10-22, when speech moved to
+// OpenRouter's speech models. The app's own copy (jenesisai-ui src/pages/Privacy.tsx) and the
 // list the iOS/Android apps show before asking permission
 // (jenesisai-ui src/lib/privacy/aiConsent.ts) say the same thing: change all three together.
 const CONTACT = "jenesisai25@gmail.com"
@@ -22,8 +23,8 @@ const AI_SERVICES: Array<[string, string]> = [
     "OpenRouter",
     "passes each request to the AI model in use: Anthropic (Claude), OpenAI (GPT), Google (Gemini), xAI (Grok), or the company hosting an open model (DeepSeek, Kimi, GLM, MiMo).",
   ],
-  ["Mistral AI", "turns your speech into text, reads replies aloud and creates custom voices."],
-  ["Sarvam AI and Google", "read replies aloud, for some languages and as a backup."],
+  ["ElevenLabs, xAI and Google (through OpenRouter)", "turn your speech into text and read replies aloud."],
+  ["Fish Audio (through OpenRouter)", "speaks in your custom voice, from the recording you made."],
   ["HeyGen", "creates and animates personal avatars."],
   ["Tripo AI", "generates 3D models you ask for."],
 ]
@@ -48,7 +49,7 @@ export default function PrivacyPage() {
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6 max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight mb-3">Privacy Policy</h1>
-          <p className="text-muted-foreground text-sm mb-12">Last updated: September 23, 2026</p>
+          <p className="text-muted-foreground text-sm mb-12">Last updated: October 22, 2026</p>
 
           <div className="space-y-10 text-sm leading-relaxed text-muted-foreground [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-3 [&_strong]:text-foreground">
             <section>
@@ -179,8 +180,8 @@ export default function PrivacyPage() {
               <p>
                 Deleting your account immediately and permanently deletes your account and the conversations, documents,
                 boards and memories linked to it. Copies in our database backups expire within 7 days, and server logs
-                within 30 days. To also have files you uploaded or recorded erased from our file storage, and any personal
-                avatar or custom voice removed from HeyGen or Mistral AI, email{" "}
+                within 30 days. To also have files you uploaded or recorded (including the sample behind a custom voice)
+                erased from our file storage, and any personal avatar removed from HeyGen, email{" "}
                 <a href={`mailto:${CONTACT}`} className="text-indigo-500 hover:underline">{CONTACT}</a> from the address on
                 your account.
               </p>
