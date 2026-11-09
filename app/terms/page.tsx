@@ -19,7 +19,7 @@ export default function TermsPage() {
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6 max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight mb-3">Terms of Service</h1>
-          <p className="text-muted-foreground text-sm mb-12">Last updated: October 5, 2026</p>
+          <p className="text-muted-foreground text-sm mb-12">Last updated: November 9, 2026</p>
 
           <div className="space-y-10 text-sm leading-relaxed text-muted-foreground [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-3 [&_strong]:text-foreground">
             <section>
@@ -84,10 +84,20 @@ export default function TermsPage() {
 
             <section>
               <h2>6. Acceptable use</h2>
-              <p>
+              <p className="mb-3">
                 You agree not to misuse the Service — including attempting to breach security, abusing or reselling credits,
                 infringing others&apos; rights, generating unlawful or harmful content, scraping at scale, or interfering with
-                other users. We may suspend or terminate accounts that violate these Terms.
+                other users. In particular, you may not access the Service by automated means (a bot, a script, or any
+                client other than the apps and interfaces we provide) without our written permission; create or use more
+                than one account to get around a usage limit or a suspension; or resell, relay or share access to the
+                Service or its credits with others.
+              </p>
+              <p className="mb-3">
+                The Service has usage limits. They depend on your plan, can change over time, and may be lower for new
+                accounts or while the Service is busy; the app tells you when you reach one and when it frees up.
+              </p>
+              <p>
+                We may limit, suspend or terminate accounts that violate these Terms.
               </p>
             </section>
 

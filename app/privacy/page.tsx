@@ -49,7 +49,7 @@ export default function PrivacyPage() {
       <main className="pt-32 pb-24">
         <div className="container mx-auto px-6 max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight mb-3">Privacy Policy</h1>
-          <p className="text-muted-foreground text-sm mb-12">Last updated: October 22, 2026</p>
+          <p className="text-muted-foreground text-sm mb-12">Last updated: November 9, 2026</p>
 
           <div className="space-y-10 text-sm leading-relaxed text-muted-foreground [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mb-3 [&_strong]:text-foreground">
             <section>
@@ -116,6 +116,14 @@ export default function PrivacyPage() {
                 accounts from abuse; to process payments and measure credit use for your plan; and to keep the Service
                 reliable. We do not sell personal data, show ads, or track you across other apps and websites.
               </p>
+              <p className="mt-3">
+                To stop automated or abusive use, we limit how many accounts can be created from one network or one email
+                domain, and how much the free plan can be used in a period of time. For this we keep a keyed, one-way
+                fingerprint of the network a request comes from (not the IP address itself) with your account and with
+                free-plan usage, and we compare email addresses in a normalised form so the same mailbox cannot hold
+                several accounts. If an account is suspended for breaking the Terms of Service, we keep a record that the
+                suspension happened and why, without any of the account&apos;s content.
+              </p>
             </section>
 
             <section>
@@ -176,6 +184,10 @@ export default function PrivacyPage() {
               <p className="mb-3">
                 Your data is kept while your account is open. You can delete individual conversations at any time. To delete
                 your account, open the menu (☰) in the app, select your name at the bottom, then Account → Delete account.
+              </p>
+              <p className="mb-3">
+                A temporary chat is not saved to your history and is never used as memory. We keep a copy for up to 30 days
+                so that misuse of the Service can be reviewed, and then delete it automatically.
               </p>
               <p>
                 Deleting your account immediately and permanently deletes your account and the conversations, documents,
