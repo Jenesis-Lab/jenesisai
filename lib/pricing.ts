@@ -204,7 +204,7 @@ export function buildPricingFaq(plans: PricingPlan[]): PricingFaqEntry[] {
         .filter(Boolean)
         .join(". ")
         .concat(
-          ". Every plan, Free included, runs Claude Opus 5.5 by default. Paid plans add the top-tier models Claude Fable 5.1 and GPT-6 Astra, scheduled goals, browser automation, and higher image, voice and translation quotas."
+          ". On every plan, Free included, Auto picks the right model for each message, Claude Opus 5.5 included. Paid plans add the top-tier models Claude Fable 5.2 and GPT-6 Astra, scheduled goals, browser automation, and higher image, voice and translation quotas."
         ),
     },
     {
