@@ -8,6 +8,7 @@
       "features": [
         "50,000,000 credits / month — about 308 agent messages or 3,333 quick questions",
         "4 Deep Researches / month",
+        "1 3D film / day",
         "5 AI image generations / month (up to 1K)",
         "1 voice clone",
         "30,000 TTS characters / month",
@@ -19,6 +20,7 @@
       ],
       "monthly_credits": 50000000,
       "deep_research_per_month": 4,
+      "films_per_day": 1,
       "agent_messages_per_month": 308,
       "quick_questions_per_month": 3333
     },
@@ -31,6 +33,7 @@
         "Everything in Free",
         "300,000,000 credits / month — about 1,851 agent messages or 20,000 quick questions",
         "10 Deep Researches / month",
+        "2 3D films / day",
         "50 AI image generations / month (up to 2K)",
         "3 voice clones",
         "200,000 TTS characters / month",
@@ -42,6 +45,7 @@
       ],
       "monthly_credits": 300000000,
       "deep_research_per_month": 10,
+      "films_per_day": 2,
       "agent_messages_per_month": 1851,
       "quick_questions_per_month": 20000
     },
@@ -54,6 +58,7 @@
         "Everything in Pro",
         "1,800,000,000 credits / month — about 11,111 agent messages or 120,000 quick questions",
         "20 Deep Researches / month",
+        "2 3D films / day",
         "150 AI image generations / month (up to 4K)",
         "10 voice clones",
         "2,000,000 TTS characters / month",
@@ -63,6 +68,7 @@
       ],
       "monthly_credits": 1800000000,
       "deep_research_per_month": 20,
+      "films_per_day": 2,
       "agent_messages_per_month": 11111,
       "quick_questions_per_month": 120000
     }
