@@ -34,6 +34,14 @@ export interface PricingPlan {
   deep_research_per_month: number
   agent_messages_per_month: number
   quick_questions_per_month: number
+  /** Credits the plan may use in any five hours (0 from an API older than 2026-11-18). */
+  five_hour_credits: number
+  /** Credits one message may use. */
+  message_credits: number
+  /** Credits one message that writes a document (a deck, a PDF) may use; 0 from an older API. */
+  document_message_credits: number
+  /** Responses that may run at once. */
+  responses_at_once: number
 }
 
 export interface PricingFeed {
@@ -116,6 +124,11 @@ function normalizePlan(
       typeof plan.quick_questions_per_month === "number"
         ? plan.quick_questions_per_month
         : Math.floor(plan.monthly_credits / perQuick),
+    five_hour_credits: typeof plan.five_hour_credits === "number" ? plan.five_hour_credits : 0,
+    message_credits: typeof plan.message_credits === "number" ? plan.message_credits : 0,
+    document_message_credits:
+      typeof plan.document_message_credits === "number" ? plan.document_message_credits : 0,
+    responses_at_once: typeof plan.responses_at_once === "number" ? plan.responses_at_once : 0,
   }
 }
 
@@ -204,15 +217,10 @@ export function buildPricingFaq(plans: PricingPlan[]): PricingFaqEntry[] {
         .filter(Boolean)
         .join(". ")
         .concat(
-          ". On every plan, Free included, Auto picks the right model for each message, Claude Opus 5.5 included. Paid plans add the top-tier models Claude Fable 5.2 and GPT-6 Astra, scheduled goals, browser automation, and higher image, voice and translation quotas."
+          ". On every plan, Free included, Auto picks the right model for each message, Claude Opus 5.5 included. Pro and Ultra add scheduled goals, browser automation, and higher image, voice and translation quotas, and Ultra adds the top-tier models Claude Fable 5.2 and GPT-6 Astra."
         ),
     },
     {
-      // Answered in whole-month totals on purpose. This used to divide the
-      // grant by 30 and quote a per-day figure, which read as a daily quota
-      // and made the Free plan sound like five messages a day. No such rule
-      // exists — see the "daily limits" answer below — and describing a pool
-      // as a rate invented a restriction the product does not have.
       q: "How much can I actually do with a month of credits?",
       a: pro
         ? `Grants are sized against measured usage, not round numbers. A short question costs about ${CREDITS_PER_QUICK_QUESTION.toLocaleString(
@@ -225,21 +233,44 @@ export function buildPricingFaq(plans: PricingPlan[]): PricingFaqEntry[] {
             free
               ? `, and ${free.agent_messages_per_month.toLocaleString("en-US")} on Free`
               : ""
-          } — yours to spend at whatever pace you like.`
+          }, and many more short questions.`
         : "Grants are sized against measured usage so a plan lasts the whole month.",
     },
     {
-      q: "Are there daily limits or a cap on how many messages I can send?",
-      a:
-        "No. There is no daily limit, no hourly limit and no message cap on any plan, including Free. " +
-        "Your monthly credits are a pool, not a rate — spend the whole month's worth in a single afternoon if that is what the work needs. " +
-        "The only thing that ever stops a request is running the pool itself down to zero.",
+      // Generated from the limits the server enforces (``usage_limits``):
+      // until 2026-11-18 this answer said there were none, and that stopped
+      // being true the day every plan got a five-hour allowance.
+      q: "Are there usage limits besides the monthly credits?",
+      a: (() => {
+        const paced = [free, pro, ultra].filter(
+          (plan): plan is PricingPlan => Boolean(plan && plan.five_hour_credits > 0)
+        )
+        if (!paced.length) {
+          return "Every plan's usage is paced so one account can't use up the service for everyone else."
+        }
+        const windows = paced
+          .map(
+            (plan) =>
+              `${plan.name}: up to ${plan.five_hour_credits.toLocaleString("en-US")} credits in any five hours and ` +
+              `${plan.message_credits.toLocaleString("en-US")} on one message` +
+              (plan.document_message_credits > plan.message_credits
+                ? ` (${plan.document_message_credits.toLocaleString("en-US")} on one that writes a document)`
+                : "")
+          )
+          .join("; ")
+        return (
+          "Yes. Like most AI products, every plan is paced in rolling five-hour windows so one account can't use up the service for everyone else, " +
+          "and one message can use only so much before the assistant stops and shows the work it has done. " +
+          `${windows}. A month never uses more than the plan's monthly credits. ` +
+          "When a limit is reached, the message says exactly when it frees up."
+        )
+      })(),
     },
     {
       q: "What happens if I run out of credits?",
       a:
-        "Your credits reset every month. If you do run the balance down, a small daily top-up lands so you can finish what you were doing rather than waiting for the reset" +
-        (pro ? `, and upgrading to ${pro.name} raises the monthly grant to ${pro.monthly_credits.toLocaleString("en-US")}.` : "."),
+        "Your credits refill every 30 days, and the message you see says exactly when" +
+        (pro ? `. Upgrading to ${pro.name} raises the monthly grant to ${pro.monthly_credits.toLocaleString("en-US")} credits.` : "."),
     },
     {
       q: "Can I cancel my subscription at any time?",
