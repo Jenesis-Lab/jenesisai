@@ -4,41 +4,9 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { HERO_SLIDES } from "@/lib/product-media"
 
-const slides = [
-  {
-    id: 1,
-    title: "Workspace Overview",
-    description: "Research, create, and collaborate in one place with Agentic AI.",
-    lightImage: "/slides/slide1_light.webp",
-    darkImage: "/slides/slide1_dark.webp",
-    alt: "JenesisAI Platform — AI Workspace Dashboard"
-  },
-  {
-    id: 2,
-    title: "Drag-and-Drop Canvas",
-    description: "Drop any files to the board and turn ideas into visual boards.",
-    lightImage: "/slides/slide2_light.webp",
-    darkImage: "/slides/slide2_dark.webp",
-    alt: "JenesisAI AI Orchestration — Multi-Agent System"
-  },
-  {
-    id: 3,
-    title: "Live AI-Powered Browser",
-    description: "Agents browse the web and run code on your behalf — pulling live data and computed results directly into your workspace.",
-    lightImage: "/slides/slide3_light.webp",
-    darkImage: "/slides/slide3_dark.webp",
-    alt: "JenesisAI Live AI-Powered Browser"
-  },
-  {
-    id: 4,
-    title: "Share & Play Visual Workflows",
-    description: "Publish and present your workflow in seconds.",
-    lightImage: "/slides/slide4_light.webp",
-    darkImage: "/slides/slide4_dark.webp",
-    alt: "JenesisAI Visual Canvas — Intelligent Workflow"
-  },
-]
+const slides = HERO_SLIDES
 
 export function HeroCarousel() {
   const [api, setApi] = useState<CarouselApi>()
@@ -108,24 +76,37 @@ export function HeroCarousel() {
               <div className="relative rounded-xl md:rounded-2xl border border-border/50 overflow-hidden shadow-2xl bg-background group w-full">
                 {/* Image Container */}
                 <div className="relative w-full aspect-[16/10] md:aspect-video overflow-hidden bg-background">
-                  {/* Light mode image */}
-                  <Image
-                    src={slide.lightImage}
-                    alt={slide.alt}
-                    fill
-                    className="object-cover dark:hidden transition-transform duration-500 group-hover:scale-[1.02]"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                    priority={index === 0}
-                  />
-                  {/* Dark mode image */}
-                  <Image
-                    src={slide.darkImage}
-                    alt={slide.alt}
-                    fill
-                    className="object-cover hidden dark:block transition-transform duration-500 group-hover:scale-[1.02]"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-                    priority={index === 0}
-                  />
+                  {slide.darkImage ? (
+                    <>
+                      {/* Light mode image */}
+                      <Image
+                        src={slide.lightImage}
+                        alt={slide.alt}
+                        fill
+                        className="object-cover object-top dark:hidden transition-transform duration-500 group-hover:scale-[1.02]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                        priority={index === 0}
+                      />
+                      {/* Dark mode image */}
+                      <Image
+                        src={slide.darkImage}
+                        alt={slide.alt}
+                        fill
+                        className="object-cover object-top hidden dark:block transition-transform duration-500 group-hover:scale-[1.02]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                        priority={index === 0}
+                      />
+                    </>
+                  ) : (
+                    <Image
+                      src={slide.lightImage}
+                      alt={slide.alt}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                      priority={index === 0}
+                    />
+                  )}
                   
                   {/* Standard bottom-fade overlay over the image for caption readability */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
