@@ -10,6 +10,8 @@ import { LogoCarousel } from "@/components/logo-carousel"
 import { HeroCarousel } from "@/components/hero-carousel"
 import { VideoDemoModal } from "@/components/video-demo-modal"
 import { UseCasesShowcase } from "@/components/use-cases-showcase"
+import { ProductInAction } from "@/components/product-in-action"
+import { BOARDS_PREVIEW, OVERVIEW_IMAGE } from "@/lib/product-media"
 import { FRONTEND_PLATFORM_URL } from "@/lib/config"
 import { trackGetStarted, trackBoardsClick, trackContactClick } from "@/lib/analytics"
 
@@ -86,6 +88,9 @@ export default function Home() {
 
       {/* ─── Logo Carousel ─── */}
       <LogoCarousel />
+
+      {/* ─── Product clips recorded in the app ─── */}
+      <ProductInAction />
 
       {/* ─── Core Platform Capabilities ─── */}
       <section className="py-32 relative">
@@ -270,10 +275,10 @@ export default function Home() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border border-border shadow-xl image-glow">
                 <Image
-                  src="/ai-orchestration.webp"
-                  alt="JenesisAI Workspace"
-                  width={600}
-                  height={600}
+                  src={OVERVIEW_IMAGE.image}
+                  alt={OVERVIEW_IMAGE.alt}
+                  width={OVERVIEW_IMAGE.width}
+                  height={OVERVIEW_IMAGE.height}
                   className="w-full h-auto"
                 />
               </div>
@@ -668,20 +673,11 @@ export default function Home() {
             <div className="relative rounded-2xl border border-border/60 overflow-hidden shadow-2xl bg-gradient-to-br from-muted/30 to-muted/60 hover:border-primary/50 transition-all duration-500 hover:shadow-indigo-500/20 hover:-translate-y-1">
               {/* Screenshot placeholder */}
               <div className="relative w-full aspect-[16/9] bg-muted/50">
-                {/* Light mode image */}
                 <Image
-                  src="/slides/slide4_light.webp"
-                  alt="JenesisAI Community Boards Gallery"
+                  src={BOARDS_PREVIEW.image}
+                  alt={BOARDS_PREVIEW.alt}
                   fill
-                  className="object-cover dark:hidden transition-all duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 1200px"
-                />
-                {/* Dark mode image */}
-                <Image
-                  src="/slides/slide4_dark.webp"
-                  alt="JenesisAI Community Boards Gallery"
-                  fill
-                  className="object-cover hidden dark:block transition-all duration-700 group-hover:scale-105"
+                  className="object-cover object-top transition-all duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 1200px"
                 />
                 

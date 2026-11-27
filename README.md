@@ -54,8 +54,8 @@ Built for **researchers**, **developers**, and **creators** who want to move as 
 
 | Workspace & research | Boards & canvas |
 |---------------------|-----------------|
-| ![Workspace](public/slides/slide1_light.png) | ![Boards](public/slides/slide2_light.png) |
-| ![Intelligence layer](public/slides/slide3_light.png) | ![Community boards](public/slides/slide4_light.png) |
+| ![Research with cited sources](public/product/shots/research-answer-with-citations.webp) | ![Canvas](public/product/shots/canvas-board-focus.webp) |
+| ![Guided tour](public/product/shots/tour-adoption-timeline.webp) | ![Whole board](public/product/shots/board-overview.webp) |
 
 *Research meets creation: conversational AI + visual canvas, from question to finished output.*
 
